@@ -1,9 +1,74 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+
+const allNotas = await getCollection('notas', ({ data }) => !data.draft);
+const posts = allNotas
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 20);
 ---
 
 <BaseLayout>
   <main class="page">
-    <p>Hola — placeholder de Fase 1.</p>
+    <section class="bio">
+      <p>
+        Notas sobre IA, tecnología y la dimensión humana de todo esto. Escribo
+        para pensar en voz alta — sin agenda, sin producto, sin prisa.
+      </p>
+    </section>
+
+    <hr class="divider" />
+
+    <div class="post-list">
+      {posts.map((post, i) => (
+        <>
+          {i > 0 && <hr class="divider" />}
+          <PostCard
+            title={post.data.title}
+            slug={post.id}
+            date={post.data.date}
+            readingTime={post.data.readingTime}
+            excerpt={post.data.excerpt}
+          />
+        </>
+      ))}
+    </div>
+
+    <footer class="list-footer">
+      <span>— más entradas —</span>
+      <a href="/rss.xml">RSS</a>
+    </footer>
   </main>
 </BaseLayout>
+
+<style>
+  .bio {
+    padding: var(--space-xl) 0 var(--space-lg);
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--text-bio);
+    color: var(--color-muted);
+    line-height: var(--leading-relaxed);
+  }
+
+  .post-list {
+    margin-top: 0;
+  }
+
+  .list-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-xl) 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    letter-spacing: 0.1em;
+    color: var(--color-muted);
+    text-transform: uppercase;
+  }
+
+  .list-footer a {
+    color: var(--color-accent);
+  }
+</style>

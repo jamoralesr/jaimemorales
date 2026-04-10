@@ -1,0 +1,18 @@
+---
+title: 'El prompt como contrato'
+date: 2026-04-09
+readingTime: 4
+excerpt: 'Un prompt no es una instrucción. Es un contrato con un colaborador que lee entre líneas y necesita conocer los límites.'
+tags: ['IA', 'prompts', 'TypeScript']
+draft: false
+---
+
+Hace un par de años yo también pensaba que un prompt era una instrucción. Escribías lo que querías, la máquina respondía, y si algo salía mal era porque la máquina "no entendía". Hoy pienso distinto. Hoy pienso que un prompt es un contrato.
+
+Un contrato tiene partes. Tiene obligaciones. Tiene criterios de aceptación. Tiene anti-criterios — cosas que explícitamente no deben ocurrir. Cuando le pido a un modelo que escriba algo, no solo le estoy diciendo *qué* quiero; le estoy definiendo *cómo sé que el resultado es bueno*. Y si no lo defino, el modelo rellena los huecos con lo que su entrenamiento considera razonable — que puede ser excelente, o puede ser exactamente lo contrario de lo que necesitaba.
+
+## La diferencia que importa
+
+La diferencia entre un prompt frágil y uno robusto no está en el estilo ni en la longitud. Está en si el contrato es verificable. Cuando el output regresa, ¿puedo decir con certeza si cumplió? Si la respuesta es "depende", el contrato está mal escrito.
+
+Un prompt bien escrito es un ejercicio de reducción: qué es lo esencial, qué es lo prohibido, qué es verificable. Todo lo demás es ruido.

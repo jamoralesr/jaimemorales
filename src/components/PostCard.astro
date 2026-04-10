@@ -1,0 +1,49 @@
+---
+import PostMeta from './PostMeta.astro';
+
+interface Props {
+  title: string;
+  slug: string;
+  date: Date;
+  readingTime?: number;
+  excerpt: string;
+}
+
+const { title, slug, date, readingTime, excerpt } = Astro.props;
+---
+
+<article class="post-card">
+  <PostMeta date={date} readingTime={readingTime} />
+  <h2 class="title">
+    <a href={`/notas/${slug}/`}>{title}</a>
+  </h2>
+  <p class="excerpt">{excerpt}</p>
+</article>
+
+<style>
+  .post-card {
+    padding: var(--space-lg) 0;
+  }
+
+  .title {
+    font-family: var(--font-display);
+    font-size: var(--text-list-title);
+    line-height: var(--leading-snug);
+    margin: var(--space-xs) 0 var(--space-sm);
+  }
+
+  .title a {
+    color: var(--color-heading);
+  }
+  .title a:hover {
+    text-decoration: none;
+    color: var(--color-accent);
+  }
+
+  .excerpt {
+    font-family: var(--font-body);
+    font-size: var(--text-excerpt);
+    line-height: var(--leading-normal);
+    color: var(--color-body);
+  }
+</style>
