@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Sobre mí"
+  description="Jaime Morales — tecnólogo, constructor, escritor"
+>
+  <main class="page sobre">
+    <section class="hero">
+      {/* TODO: foto real en public/sobre-mi.jpg */}
+      <div class="photo-placeholder" aria-hidden="true"></div>
+      <div>
+        <h1>Jaime Morales</h1>
+        <p class="role">Constructor de cosas con IA · Chile</p>
+        <p class="pitch">
+          Pienso en voz alta sobre tecnología y humanidad. Construyo sistemas
+          que intentan no empeorar el mundo.
+        </p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <section class="bio">
+      <p>
+        {/* TODO: bio real — Dumbo rellena */}
+        Llevo más de una década construyendo software. En los últimos años casi
+        todo lo que hago está cruzado por modelos de lenguaje — no como moda,
+        sino como un cambio estructural en cómo pensamos, escribimos y
+        decidimos. Este sitio es donde intento darle forma a ese cambio con
+        palabras en lugar de con código.
+      </p>
+      <p>
+        {/* TODO: segundo párrafo — contexto profesional, lo que te importa */}
+        No tengo tesis cerrada. Tengo preguntas que voy afinando en público,
+        con la honestidad de quien sabe que estamos todos aprendiendo al mismo
+        tiempo.
+      </p>
+    </section>
+
+    <hr class="divider" />
+
+    <section class="extras">
+      <h2>Fuera del código</h2>
+      <ul>
+        <li><strong>Fotografía</strong> — blanco y negro, ciudades, silencio.</li>
+        <li><strong>Motorsport</strong> — F1, endurance, la precisión como arte.</li>
+        <li><strong>Jazz y sci-fi</strong> — improvisación y futuros posibles.</li>
+      </ul>
+    </section>
+
+    <hr class="divider" />
+
+    <section class="contact">
+      <h2>Contacto</h2>
+      <ul class="links">
+        <li><a href="mailto:jaime@jaimemorales.cl">jaime@jaimemorales.cl</a></li>
+        <li><a href="https://conjuros.dev">conjuros.dev</a></li>
+        <li><a href="https://github.com/jaimemorales">GitHub</a></li>
+      </ul>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .sobre {
+    padding-top: var(--space-xl);
+  }
+
+  .hero {
+    display: flex;
+    gap: var(--space-xl);
+    align-items: center;
+    padding-bottom: var(--space-xl);
+  }
+
+  .photo-placeholder {
+    flex: 0 0 140px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: var(--color-border);
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    color: var(--color-heading);
+    font-weight: 400;
+    margin: 0 0 var(--space-xs);
+  }
+
+  .role {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-meta);
+    margin: 0 0 var(--space-sm);
+  }
+
+  .pitch {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--text-bio);
+    color: var(--color-muted);
+    line-height: var(--leading-normal);
+    max-width: 50ch;
+  }
+
+  .bio {
+    padding: var(--space-xl) 0;
+  }
+  .bio p {
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    color: var(--color-body);
+    line-height: var(--leading-relaxed);
+    margin-bottom: 1.5rem;
+    max-width: 65ch;
+  }
+
+  .extras,
+  .contact {
+    padding: var(--space-xl) 0;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    color: var(--color-heading);
+    font-weight: 400;
+    margin: 0 0 var(--space-md);
+  }
+
+  .extras ul,
+  .links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .extras li,
+  .links li {
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    color: var(--color-body);
+    line-height: var(--leading-relaxed);
+    padding: var(--space-xs) 0;
+  }
+  .links a {
+    color: var(--color-dark);
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      flex-direction: column;
+      text-align: center;
+      gap: var(--space-lg);
+    }
+  }
+</style>

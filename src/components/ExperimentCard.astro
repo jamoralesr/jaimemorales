@@ -1,0 +1,95 @@
+---
+import type { Experiment, ExperimentStatus } from '../data/experiments';
+
+interface Props {
+  experiment: Experiment;
+}
+
+const { experiment } = Astro.props;
+
+const statusStyles: Record<ExperimentStatus, { bg: string; fg: string }> = {
+  'en producción':  { bg: '#d4ede0', fg: '#2a6645' },
+  'en desarrollo':  { bg: '#faebd7', fg: '#8b4a0f' },
+  'en exploración': { bg: '#e8e4f0', fg: '#4a3a7a' },
+  'con clientes':   { bg: '#d4ede0', fg: '#2a6645' },
+};
+
+const style = statusStyles[experiment.status];
+---
+
+<article class="experiment">
+  <header class="head">
+    <h2 class="name">
+      {experiment.url ? (
+        <a href={experiment.url}>{experiment.name}</a>
+      ) : (
+        experiment.name
+      )}
+    </h2>
+    <span
+      class="badge"
+      style={`background: ${style.bg}; color: ${style.fg};`}
+    >
+      {experiment.status}
+    </span>
+  </header>
+  <p class="description">{experiment.description}</p>
+  <p class="tags">
+    {experiment.tags.join(' · ')}
+  </p>
+</article>
+
+<style>
+  .experiment {
+    padding: var(--space-lg) 0;
+  }
+
+  .head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .name {
+    font-family: var(--font-display);
+    font-size: var(--text-list-title);
+    color: var(--color-heading);
+    font-weight: 400;
+    margin: 0;
+  }
+  .name a {
+    color: inherit;
+  }
+  .name a:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .badge {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--border-radius-md);
+  }
+
+  .description {
+    font-family: var(--font-body);
+    font-size: var(--text-excerpt);
+    color: var(--color-body);
+    line-height: var(--leading-normal);
+    margin: var(--space-sm) 0;
+  }
+
+  .tags {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    color: var(--color-muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+</style>
