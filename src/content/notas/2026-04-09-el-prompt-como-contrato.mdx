@@ -16,3 +16,18 @@ Un contrato tiene partes. Tiene obligaciones. Tiene criterios de aceptación. Ti
 La diferencia entre un prompt frágil y uno robusto no está en el estilo ni en la longitud. Está en si el contrato es verificable. Cuando el output regresa, ¿puedo decir con certeza si cumplió? Si la respuesta es "depende", el contrato está mal escrito.
 
 Un prompt bien escrito es un ejercicio de reducción: qué es lo esencial, qué es lo prohibido, qué es verificable. Todo lo demás es ruido.
+
+## Contrato como tipo
+
+Cuando el contrato es TypeScript, todo se vuelve más literal:
+
+```typescript
+interface PromptContract {
+  voz: 'reflexiva' | 'directa' | 'técnica';
+  longitud: { min: number; max: number };
+  prohibido: string[];  // anti-criterios
+  verificar: (output: string) => boolean;
+}
+```
+
+Ese último campo —`verificar`— es lo que separa una petición de un contrato. Si no puedes escribir la función, no tienes un contrato: tienes una esperanza.

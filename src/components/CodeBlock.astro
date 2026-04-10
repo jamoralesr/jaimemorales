@@ -1,0 +1,84 @@
+---
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'text' } = Astro.props;
+---
+
+<figure class="code-block">
+  <header class="bar">
+    <span class="dots" aria-hidden="true">
+      <span class="dot dot--red"></span>
+      <span class="dot dot--amber"></span>
+      <span class="dot dot--green"></span>
+    </span>
+    <span class="lang">{lang}</span>
+  </header>
+  <div class="body">
+    <slot />
+  </div>
+</figure>
+
+<style>
+  .code-block {
+    margin: 2rem 0;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+  }
+
+  .bar {
+    background: var(--color-code-bar);
+    padding: 0.5rem 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .dots {
+    display: inline-flex;
+    gap: 6px;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot--red   { background: var(--color-accent); }
+  .dot--amber { background: #e4a045; }
+  .dot--green { background: #5a9970; }
+
+  .lang {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-code-dim);
+  }
+
+  .body {
+    background: var(--color-code-bg);
+    color: var(--color-code-text);
+    font-family: var(--font-mono);
+    font-size: var(--text-code);
+    line-height: 1.6;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+  }
+
+  /* Neutralize the wrapped <pre> from shiki / markdown so we don't double-pad */
+  .body :global(pre) {
+    margin: 0;
+    padding: 0;
+    background: transparent !important;
+    border-radius: 0;
+    overflow: visible;
+  }
+  .body :global(code) {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+  }
+</style>

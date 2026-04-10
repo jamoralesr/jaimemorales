@@ -1,0 +1,130 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostMeta from '../../components/PostMeta.astro';
+import '../../styles/prose.css';
+
+export async function getStaticPaths() {
+  const all = await getCollection('notas', ({ data }) => !data.draft);
+  const sorted = all.sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+  );
+
+  return sorted.map((post, i) => ({
+    params: { slug: post.id },
+    props: {
+      post,
+      prev: sorted[i + 1] ?? null,
+      next: sorted[i - 1] ?? null,
+    },
+  }));
+}
+
+const { post, prev, next } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={post.data.title} description={post.data.excerpt}>
+  <article class="page post">
+    <nav class="back">
+      <a href="/">← todas las entradas</a>
+    </nav>
+
+    <header class="post-head">
+      <PostMeta date={post.data.date} readingTime={post.data.readingTime} />
+      <h1>{post.data.title}</h1>
+      <p class="lead">{post.data.excerpt}</p>
+    </header>
+
+    <hr class="divider" />
+
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+
+  <nav class="post-nav page">
+    {prev ? (
+      <a href={`/notas/${prev.id}/`} class="prev">
+        ← <span>{prev.data.title}</span>
+      </a>
+    ) : <span />}
+    {next ? (
+      <a href={`/notas/${next.id}/`} class="next">
+        <span>{next.data.title}</span> →
+      </a>
+    ) : <span />}
+  </nav>
+</BaseLayout>
+
+<style>
+  .post {
+    padding-top: var(--space-xl);
+  }
+
+  .back {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-xl);
+  }
+  .back a {
+    color: var(--color-muted);
+  }
+  .back a:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .post-head {
+    margin-bottom: var(--space-lg);
+  }
+
+  .post-head h1 {
+    font-family: var(--font-display);
+    font-size: var(--text-h1);
+    line-height: var(--leading-tight);
+    color: var(--color-heading);
+    margin: var(--space-sm) 0 var(--space-md);
+    font-weight: 400;
+  }
+
+  .lead {
+    font-family: var(--font-body);
+    font-size: var(--text-lead);
+    font-style: italic;
+    color: var(--color-muted);
+    line-height: var(--leading-normal);
+  }
+
+  .post-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-md);
+    margin-top: var(--space-3xl);
+    padding: var(--space-xl) 0;
+    border-top: 1px solid var(--color-border);
+    font-family: var(--font-body);
+    font-size: var(--text-excerpt);
+  }
+
+  .post-nav a {
+    color: var(--color-dark);
+    max-width: 45%;
+  }
+  .post-nav a:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .post-nav .next {
+    text-align: right;
+  }
+
+  @media (max-width: 640px) {
+    .post-head h1 {
+      font-size: 36px;
+    }
+  }
+</style>
