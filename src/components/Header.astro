@@ -1,0 +1,83 @@
+---
+const path = Astro.url.pathname;
+const isActive = (prefix: string) => {
+  if (prefix === '/') return path === '/';
+  return path === prefix || path.startsWith(prefix + '/');
+};
+
+const navItems = [
+  { label: 'notas', href: '/' },
+  { label: 'experimentos', href: '/experimentos' },
+  { label: 'sobre mí', href: '/sobre-mi' },
+];
+---
+
+<header class="site-header">
+  <a href="/" class="site-name">Jaime Morales</a>
+  <nav class="site-nav" aria-label="Principal">
+    {navItems.map((item, i) => (
+      <>
+        {i > 0 && <span class="sep" aria-hidden="true">·</span>}
+        <a
+          href={item.href}
+          class:list={['nav-item', { 'is-active': isActive(item.href) }]}
+        >
+          {item.label}
+        </a>
+      </>
+    ))}
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-lg) var(--page-padding-x);
+    max-width: calc(var(--content-width) + var(--page-padding-x) * 2);
+    margin: 0 auto;
+  }
+
+  .site-name {
+    font-family: var(--font-mono);
+    font-size: var(--text-nav);
+    letter-spacing: 0.15em;
+    text-transform: none;
+    color: var(--color-accent);
+  }
+  .site-name:hover {
+    text-decoration: none;
+  }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 14px;
+  }
+
+  .nav-item {
+    color: var(--color-dark);
+  }
+  .nav-item.is-active {
+    color: var(--color-heading);
+  }
+  .nav-item:hover {
+    text-decoration: none;
+    color: var(--color-heading);
+  }
+
+  .sep {
+    color: var(--color-muted);
+    font-style: normal;
+  }
+
+  @media (max-width: 640px) {
+    .site-header {
+      padding: var(--space-md) var(--page-padding-x-sm);
+    }
+  }
+</style>
