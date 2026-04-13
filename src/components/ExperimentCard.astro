@@ -7,14 +7,14 @@ interface Props {
 
 const { experiment } = Astro.props;
 
-const statusStyles: Record<ExperimentStatus, { bg: string; fg: string }> = {
-  'en producción':  { bg: '#d4ede0', fg: '#2a6645' },
-  'en desarrollo':  { bg: '#faebd7', fg: '#8b4a0f' },
-  'en exploración': { bg: '#e8e4f0', fg: '#4a3a7a' },
-  'con clientes':   { bg: '#d4ede0', fg: '#2a6645' },
+const statusModifier: Record<ExperimentStatus, string> = {
+  'en producción':  'badge--produccion',
+  'en desarrollo':  'badge--desarrollo',
+  'en exploración': 'badge--exploracion',
+  'con clientes':   'badge--clientes',
 };
 
-const style = statusStyles[experiment.status];
+const badgeClass = statusModifier[experiment.status];
 ---
 
 <article class="experiment">
@@ -26,10 +26,7 @@ const style = statusStyles[experiment.status];
         experiment.name
       )}
     </h2>
-    <span
-      class="badge"
-      style={`background: ${style.bg}; color: ${style.fg};`}
-    >
+    <span class:list={['badge', badgeClass]}>
       {experiment.status}
     </span>
   </header>
@@ -74,6 +71,36 @@ const style = statusStyles[experiment.status];
     text-transform: uppercase;
     padding: 0.25rem 0.6rem;
     border-radius: var(--border-radius-md);
+  }
+
+  .badge--produccion,
+  .badge--clientes {
+    background: #d4ede0;
+    color: #2a6645;
+  }
+  .badge--desarrollo {
+    background: #faebd7;
+    color: #8b4a0f;
+  }
+  .badge--exploracion {
+    background: #e8e4f0;
+    color: #4a3a7a;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .badge--produccion,
+    .badge--clientes {
+      background: #1f3a2d;
+      color: #8fd1ad;
+    }
+    .badge--desarrollo {
+      background: #3a2a18;
+      color: #e4a45f;
+    }
+    .badge--exploracion {
+      background: #2a2438;
+      color: #b3a8d4;
+    }
   }
 
   .description {

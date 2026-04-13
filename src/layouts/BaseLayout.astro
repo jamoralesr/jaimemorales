@@ -5,14 +5,20 @@ import Header from '../components/Header.astro';
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  type?: 'website' | 'article';
 }
 
 const {
   title = 'Jaime Morales',
   description = 'Notas sobre IA, tecnología y humanidad.',
+  image = '/og-default.svg',
+  type = 'website',
 } = Astro.props;
 
 const pageTitle = title === 'Jaime Morales' ? title : `${title} — Jaime Morales`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+const ogImage = new URL(image, Astro.site).toString();
 ---
 
 <!doctype html>
@@ -23,10 +29,27 @@ const pageTitle = title === 'Jaime Morales' ? title : `${title} — Jaime Morale
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
     <link rel="alternate" type="application/rss+xml" title="Jaime Morales" href="/rss.xml" />
     <title>{pageTitle}</title>
+
+    {/* Open Graph */}
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="Jaime Morales" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="es_CL" />
+
+    {/* Twitter */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
   </head>
   <body>
+    <a href="#main" class="skip-link">Saltar al contenido</a>
     <Header />
     <hr class="accent-bar" />
     <slot />

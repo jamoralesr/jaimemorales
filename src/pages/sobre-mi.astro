@@ -6,10 +6,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="Sobre mí"
   description="Jaime Morales — tecnólogo, constructor, escritor"
 >
-  <main class="page sobre">
+  <main id="main" class="page sobre">
     <section class="hero">
-      {/* TODO: foto real en public/sobre-mi.jpg */}
-      <div class="photo-placeholder" aria-hidden="true"></div>
+      {/* TODO: reemplazar el monograma por foto real en public/sobre-mi.jpg cuando exista */}
+      <div class="photo-monogram" aria-hidden="true">JM</div>
       <div>
         <h1>Jaime Morales</h1>
         <p class="role">Constructor de cosas con IA · Chile</p>
@@ -75,12 +75,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     padding-bottom: var(--space-xl);
   }
 
-  .photo-placeholder {
+  .photo-monogram {
     flex: 0 0 140px;
     width: 140px;
     height: 140px;
     border-radius: 50%;
     background: var(--color-border);
+    color: var(--color-heading);
+    font-family: var(--font-display);
+    font-size: 56px;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.02em;
   }
 
   .hero h1 {

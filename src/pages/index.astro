@@ -10,11 +10,14 @@ const posts = allNotas
 ---
 
 <BaseLayout>
-  <main class="page">
-    <section class="bio">
-      <p>
-        Notas sobre IA, tecnología y la dimensión humana de todo esto. Escribo
-        para pensar en voz alta — sin agenda, sin producto, sin prisa.
+  <main id="main" class="page">
+    <section class="intro">
+      <p class="eyebrow">Ingeniero Comercial · Consultor IA · Santiago</p>
+      <h1>Notas desde <em>adentro</em> de la transición.</h1>
+      <p class="lead">
+        Desarrollador y consultor de IA. Estas son notas sobre IA, tecnología
+        y la dimensión humana de todo esto. Escribo para pensar en voz alta —
+        sin agenda, sin producto, sin prisa.
       </p>
     </section>
 
@@ -43,13 +46,40 @@ const posts = allNotas
 </BaseLayout>
 
 <style>
-  .bio {
-    padding: var(--space-xl) 0 var(--space-lg);
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: var(--text-bio);
+  .intro {
+    padding: var(--space-2xl) 0 var(--space-xl);
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: var(--color-muted);
+    margin-bottom: var(--space-md);
+  }
+
+  .intro h1 {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 64px);
+    line-height: 1.1;
+    color: var(--color-heading);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--space-lg);
+  }
+
+  .intro h1 em {
+    color: var(--color-accent);
+    font-style: italic;
+  }
+
+  .lead {
+    font-family: var(--font-body);
+    font-size: var(--text-lead);
+    color: var(--color-body);
     line-height: var(--leading-relaxed);
+    max-width: 60ch;
   }
 
   .post-list {
