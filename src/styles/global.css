@@ -36,18 +36,18 @@
   --font-mono:    'IBM Plex Mono', 'Courier New', monospace;
 
   /* Type scale */
-  --text-h1:         48px;
-  --text-h2:         36px;
-  --text-h3:         24px;
-  --text-lead:       18px;
-  --text-body:       16px;
-  --text-excerpt:    15px;
-  --text-bio:        17px;
-  --text-list-title: 22px;
-  --text-code:       12px;
-  --text-meta:       11px;
-  --text-caption:    10px;
-  --text-nav:        13px;
+  --text-h1:         52px;
+  --text-h2:         38px;
+  --text-h3:         26px;
+  --text-lead:       20px;
+  --text-body:       18px;
+  --text-excerpt:    17px;
+  --text-bio:        19px;
+  --text-list-title: 24px;
+  --text-code:       13px;
+  --text-meta:       12px;
+  --text-caption:    11px;
+  --text-nav:        14px;
 
   /* Line heights */
   --leading-tight:   1.25;
