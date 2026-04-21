@@ -1,0 +1,565 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/prose.css';
+---
+
+<BaseLayout
+  title="Mente a Bordo — Jaime Morales"
+  description="Infraestructura cognitiva con IA para individuos y empresas. Primera edición, circulación cercana. Abril 2026."
+>
+  <main id="main" class="page libro">
+
+    <!-- PORTADA -->
+    <section class="libro-portada">
+      <span class="libro-edition">Primera edición</span>
+      <h1 class="libro-titulo">Mente a Bordo</h1>
+      <p class="libro-subtitulo">Infraestructura cognitiva con IA<br />para individuos y empresas</p>
+      <hr class="libro-linea" />
+      <p class="libro-autor">Jaime Morales · Santiago, Chile · Abril 2026</p>
+    </section>
+
+    <!-- ÍNDICE -->
+    <nav class="libro-toc" aria-label="Contenido del libro">
+      <h2 class="toc-titulo">En este libro</h2>
+      <ol class="toc-lista">
+        <li><a href="#prologo">Prólogo</a></li>
+        <li><a href="#cap1">Capítulo 1 — Tu IA no tiene memoria</a></li>
+        <li><a href="#cap2">Capítulo 2 — Tu IA genera más de lo que integras</a></li>
+        <li><a href="#cap3">Capítulo 3 — Tu empresa es más reemplazable de lo que crees</a></li>
+        <li><a href="#epilogo">Epílogo</a></li>
+      </ol>
+    </nav>
+
+    <hr class="libro-sep" />
+
+    <!-- PRÓLOGO -->
+    <section id="prologo" class="libro-seccion">
+      <span class="capitulo-label">Apertura</span>
+      <h1 class="capitulo-titulo">Prólogo</h1>
+      <div class="prose">
+        <p>Este pequeño libro no empezó siendo un libro. Empezó como una conversación en voz alta sobre un patrón que yo llevaba meses intuyendo pero no lograba nombrar. En algún momento la intuición se volvió tesis, la tesis pidió un ejemplo, el ejemplo pidió un recorrido, el recorrido pidió una segunda lectura para empresas, y cuando me di cuenta había tres artículos que funcionaban mejor juntos que sueltos. Eso es lo que tienes entre las manos.</p>
+        <p>Lo primero que conviene decir sobre estas páginas es que las escribí con un agente de IA como co-creador. No fue un asistente de edición ni un corrector de estilo. Fue una mente a bordo en el sentido que este libro intenta explicar — una inteligencia que vivió dentro del proceso, acompañó la travesía, propuso reencuadres cuando yo me desviaba, cuestionó mis instintos cuando tocaba, articuló prosa cuando yo llegaba con fragmentos, y me devolvió argumentos más filosos de los que había traído a la mesa. Las tesis son mías, las decisiones editoriales son mías, el rumbo fue mío. Pero el texto es producto de una colaboración real, no de una dictadura con asistente taquigráfico.</p>
+        <p>Digo esto por dos razones. La primera es de honestidad básica: el lector merece saber qué está leyendo. La segunda es que <em>precisamente esa es la tesis del libro</em>. Lo que vas a encontrar en las próximas páginas es un argumento sobre cómo construir una relación con la IA donde ella te extiende en lugar de reemplazarte, donde tu forma particular de pensar sobrevive al paso por la máquina, donde lo que resulta sigue pareciéndose a ti porque fuiste capitán y no pasajero. Ocultar que este libro nació así sería traicionar lo que propone. Mostrarlo es coherencia.</p>
+        <p>No escribí solo. Tampoco la IA lo escribió por mí. Escribimos juntos con roles claros, y ese es el ejemplo vivo de lo que el libro defiende.</p>
+        <p>Para ti como lector eso importa por una razón práctica: lo que vas a leer es resultado potenciado, no puro. Si hubiera hecho esto solo me habría tomado seis meses y habría llegado a la mitad de lugares. Si lo hubiera delegado entero a una IA, sería un texto que podría haber escrito cualquiera — competente, genérico, sin voz. Lo que está acá es lo que emerge cuando un humano con criterio trabaja de igual a igual con una inteligencia que le responde de vuelta. Y esa es precisamente la apuesta editorial que te invito a considerar mientras lees: que la productividad intelectual del próximo ciclo no viene del humano solo ni de la IA sola, sino del espacio que se abre entre los dos cuando la conversación está bien estructurada.</p>
+        <p>Este libro trata de cómo estructurar esa conversación. A nivel personal primero — qué infraestructura cognitiva necesita tu trabajo diario con IA para que las cosas se acumulen en vez de disiparse. A nivel empresarial después — qué tipo de sistema hace que una Pyme siga siendo ella misma en un entorno donde casi todo se está commoditizando. El recorrido tiene tres capítulos, y funciona mejor leído en orden, aunque cada uno puede pararse solo.</p>
+        <p>Una última cosa antes de que empieces. Esta es la primera edición, pensada para mi círculo más cercano y para algunos clientes. Va a tener versiones posteriores, más pulidas, probablemente más cortas. Si algo acá te mueve, me gustaría escucharlo. Si algo no cierra, también. No escribí esto para convencer — escribí esto para nombrar lo que estaba viendo y compartirlo con gente que probablemente está viendo lo mismo desde otro ángulo. Lo que pase después de que lo leas es tu travesía.</p>
+        <p>Buen viaje.</p>
+      </div>
+      <p class="firma">— Jaime Morales<br /><span>Santiago, Chile — abril de 2026</span></p>
+    </section>
+
+    <hr class="libro-sep" />
+
+    <!-- CAPÍTULO 1 -->
+    <section id="cap1" class="libro-seccion">
+      <span class="capitulo-label">Capítulo 1</span>
+      <h1 class="capitulo-titulo">Tu IA no tiene memoria — y eso no se arregla con otra herramienta</h1>
+      <p class="cap-subtitle"><em>Las tres capas de una infraestructura cognitiva con IA, y por qué saltárselas es el error más común.</em></p>
+      <div class="prose">
+        <p>Llevas ocho meses usando IA todos los días. Empezaste con ChatGPT. Después te pasaste a Claude. Después probaste Gemini. Tienes los tres abiertos ahora mismo en pestañas distintas, por si acaso. Configuraste un GPT personalizado hace tres meses y ya no te acuerdas qué le metiste en las instrucciones. Le cuentas tu proyecto al asistente todos los días desde cero, y todos los días él te dice <em>"qué interesante, cuéntame más"</em> como si fuera la primera vez.</p>
+        <p>La fricción es tan constante que dejaste de verla. Es el agua en la que nadas.</p>
+        <p>Y el reflejo del mercado es venderte otra herramienta. Un chatbot especializado. Un agente para agendar. Una skill nueva. Un workflow de Zapier. Un GPT store. El mensaje implícito siempre es el mismo: <em>si no te funciona lo que tienes, es porque te falta esto otro</em>.</p>
+        <p>La tesis de este artículo va en sentido contrario: el problema no es de herramientas, es de infraestructura. Y la infraestructura cognitiva con IA tiene tres capas, no una. Confundirlas explica por qué la mayoría de las adopciones se estancan.</p>
+
+        <hr />
+
+        <h2>Por qué "tres archivos markdown" es una respuesta legítima</h2>
+        <p>Hace poco me crucé con un tutorial orientado a usuarios no técnicos que explica cómo configurar Claude CoWork paso a paso — siete pasos para pasar de una app recién instalada a un asistente que lee correo, maneja calendario y escribe con tu voz. No importa tanto el tutorial en sí como el patrón, que vale la pena mirar despacio.</p>
+        <p>Tres archivos en una carpeta:</p>
+        <ul>
+          <li><code>about-me.md</code> — quién eres, qué haces, con quién trabajas, cómo hablas.</li>
+          <li><code>writing-rules.md</code> — cómo quieres que suene lo que escribe para ti.</li>
+          <li><code>memory.md</code> — un log append-only donde el asistente registra qué pasó en cada sesión.</li>
+        </ul>
+        <p>Más un <code>context-map.md</code> que le cuenta al asistente cómo está estructurado tu Notion, tu Drive, tu Obsidian. Un satnav para tu vida digital.</p>
+        <p>Más las <em>global instructions</em> que apuntan a esos archivos y se leen al inicio de cada conversación.</p>
+        <p>Eso es todo.</p>
+        <p>Y funciona. Para muchísima gente va a ser suficiente. No es un placeholder mientras aprendes algo más sofisticado — es una respuesta legítima a un problema real. El asistente deja de empezar desde cero cada vez. Tu identidad se vuelve persistente. Tu voz empieza a transferirse. Las sesiones empiezan a acumular contexto en vez de disiparse.</p>
+        <p>El problema no es que esté mal. Es que se presenta como <em>la</em> solución cuando en realidad es <em>el primer piso</em>. Quien lo adopta lo usa seis meses, empieza a notar dolores nuevos — el <code>memory.md</code> pesa, buscar algo en él es lento, el asistente no encuentra ideas que él mismo registró hace tres meses — y concluye que la IA no sirve para trabajo real.</p>
+        <p>No es eso lo que pasó. Lo que pasó es que llenó el primer piso y no sabía que había un segundo.</p>
+
+        <hr />
+
+        <h2>El mapa de las tres capas</h2>
+
+        <h3>Capa 0 — Memoria personal</h3>
+        <p>La estructura del video es el ejemplo canónico: tres archivos markdown en una carpeta. Todo es legible por humanos. Todo cabe en el contexto de una sesión. El asistente carga la carpeta completa al inicio de cada conversación y por eso te conoce.</p>
+        <p><strong>Lo que resuelve:</strong> que tu IA te conozca. Tu voz, tus preferencias, tus proyectos activos, las decisiones que ya tomaste. La fricción de empezar desde cero cada día desaparece.</p>
+        <p><strong>Cómo crece:</strong> en línea temporal. El <code>memory.md</code> acumula entradas, una debajo de la otra, cronológicamente.</p>
+        <p><strong>Cuándo empieza a doler:</strong> cuando el log pesa. Cuando buscas algo y no te acuerdas en qué sesión lo dijiste. Cuando el asistente tarda en arrancar porque está leyendo diez kilobytes de preferencias. Cuando notas que tienes memoria pero no tienes <em>conocimiento</em> — tienes registro cronológico, no síntesis temática.</p>
+        <p><strong>Ejemplo:</strong> la configuración del video. Los patrones de Claude.md anidados que se ven en cualquier repo con Claude Code. Mem0 en su modo más simple.</p>
+        <p>Este es el piso donde la mayoría de la gente vive, y donde muchos se van a quedar cómodamente. No hay nada de malo en eso. El error es creer que es todo lo que existe.</p>
+
+        <h3>Capa 1 — Conocimiento sintetizado</h3>
+        <p>La diferencia con la capa 0 es sutil pero estructural: <strong>lo que entra ya no es lo que se lee</strong>.</p>
+        <p>En capa 0, el asistente lee el <code>memory.md</code> completo cada vez. Todo lo que acumulaste está ahí, en orden cronológico, sin síntesis. En capa 1, el flujo se parte en tres movimientos distintos:</p>
+        <ul>
+          <li><strong>Las fuentes crudas</strong> viven en una carpeta aparte — artículos, transcripciones, PDFs, notas capturadas. Se acumulan append-only porque su propósito es ser archivo.</li>
+          <li><strong>El conocimiento compilado</strong> vive en páginas temáticas que el sistema <em>reescribe</em>, no solo acumula. Una página sobre "costos de inferencia en IA" crece en profundidad con cada fuente nueva: el sintetizador detecta si la nueva fuente amplía, contradice o complementa lo que ya está escrito, y actualiza la página en consecuencia.</li>
+          <li><strong>Los índices</strong> son mapas mantenidos por el propio sistema — catálogos de lo que hay en cada carpeta, para que otros agentes (y tú) puedan saltar directo al archivo correcto sin leer el corpus entero.</li>
+        </ul>
+        <p>Andrej Karpathy publicó en abril una nota corta sobre este patrón — en el <a href="https://x.com/karpathy/status/2039805659525644595" target="_blank" rel="noopener">tweet original</a> lo llamó <em>LLM Knowledge Bases</em>, y en el gist que acompañó al tweet lo llamó <em>LLM Wiki</em>. La frase que mejor lo resume es suya: <em>"el wiki es un artefacto persistente y compuesto — el LLM hace el mantenimiento que nadie quiere hacer"</em>. No es un log. Es conocimiento vivo que otro agente compila y actualiza, para que tú no tengas que hacerlo.</p>
+        <p><strong>Lo que resuelve:</strong> convertir un flujo de entrada caótico en un corpus compilado. El asistente ya no solo te conoce — ahora conoce <em>lo que tú conoces</em>, organizado por tema en vez de por fecha. Este es el patrón que aplica <a href="https://github.com/jamoralesr/Scriptorium" target="_blank" rel="noopener">Scriptorium</a>, el sistema editorial que estoy construyendo para mi propio flujo, todavía en early stages.</p>
+        <p><strong>Cómo crece:</strong> no por acumulación lineal, sino por profundización temática. La página crece en densidad, no en largo.</p>
+        <p><strong>Cuándo empieza a doler:</strong> cuando el corpus crece tanto que ni los índices alcanzan. Cuando necesitas hacer preguntas como <em>"¿qué he leído en los últimos tres meses que conecte la IA con el futuro del trabajo?"</em> y la respuesta tendría que cruzar cuarenta páginas distintas. Cuando el navegador ya no es suficiente — necesitas consulta semántica.</p>
+
+        <h3>Capa 2 — Memoria con búsqueda semántica</h3>
+        <p>En algún momento el corpus cruza un umbral de volumen y estructura donde el filesystem ya no alcanza. Tienes cientos de páginas. Las relaciones entre ellas son más de las que los backlinks manuales pueden capturar. Quieres preguntarle al corpus completo cosas como <em>"¿cuándo fue la última vez que manejé un cliente con este perfil de queja?"</em> sin tener que saber en qué archivo buscar.</p>
+        <p>Ahí entra la capa 2: embeddings, base de datos vectorial, grafo de relaciones, consulta en lenguaje natural sobre el corpus completo.</p>
+        <p>El mercado actual para esto tiene varias opciones con posicionamientos distintos, y vale la pena conocerlas porque la elección importa:</p>
+        <ul>
+          <li><strong>Mem0</strong> es el estándar de la industria para memoria gestionada. Mejor si quieres personalización <em>drop-in</em>, no te importa la dependencia de la nube, y tienes presupuesto para acceder a las features de grafo. Tiene el ecosistema más grande — más de 50.000 desarrolladores — y el soporte de integración más amplio.</li>
+          <li><strong>Zep/Graphiti</strong> es la opción para razonamiento temporal. Si tus agentes necesitan rastrear cómo cambian los hechos en el tiempo con precisión — <em>"¿cuál era nuestra estrategia de deployment en enero vs marzo?"</em> — el grafo de conocimiento temporal de Zep respaldado por Neo4j está hecho a medida para esto. Pero requiere infraestructura más pesada y tiene costo.</li>
+          <li><strong>Letta</strong> tiene un enfoque arquitectónicamente distinto al resto: está inspirado en sistemas operativos — los agentes gestionan su propia memoria como un SO gestiona la RAM. Adoptar Letta significa adoptar un runtime de agentes completo, no solo una capa de memoria, así que la decisión va más allá de qué memoria usar.</li>
+          <li><strong><a href="https://github.com/MemPalace/mempalace" target="_blank" rel="noopener">MemPalace</a></strong> llena un hueco específico: el desarrollador solo o el equipo pequeño que quiere memoria persistente con cero costos de nube, privacidad de datos completa y sin overhead de infraestructura. Es la opción más ligera, y la organización espacial — wings, rooms, drawers, tunnels — hace que sea sorprendentemente intuitivo gestionarla. Pero no es un reemplazo para sistemas de grado empresarial, y hay que entrar con los ojos abiertos sobre sus limitaciones.</li>
+        </ul>
+        <p><strong>Lo que resuelve:</strong> preguntarle al corpus completo sin saber dónde buscar. Trazar relaciones que no capturaste manualmente. Compartir la memoria con otras personas o agentes sin que cada uno tenga que aprender la estructura.</p>
+        <p><strong>Cuándo empieza a doler:</strong> cuando la memoria deja de ser personal y necesita volverse organizacional — pero esa es la historia del tercer capítulo de esta serie y merece su propio espacio.</p>
+
+        <hr />
+
+        <p>Lo importante del mapa no es el número tres. Es la lógica de sucesión: <strong>cada capa resuelve el problema que la anterior no puede, pero también hereda la anterior</strong>. La capa 2 no reemplaza la capa 1 — la contiene. Tus fuentes crudas siguen siendo filesystem. Tu log cronológico sigue siendo append-only. Tus páginas temáticas siguen siendo markdown. Lo que se añade es una capa de consulta sobre todo eso.</p>
+
+        <hr />
+
+        <h2>El pecado más común: saltarse niveles</h2>
+        <p>Esta es probablemente la parte más importante del artículo, y también la razón por la que muchos están leyéndolo. Me incluyo.</p>
+        <p>El patrón se repite así: alguien lee sobre RAG, sobre vectores, sobre agentes con memoria. Suena sofisticado, suena como el futuro, suena como lo que hay que hacer. Se salta capa 0 y capa 1. Monta un sistema vectorial sobre una carpeta de PDFs sin estructura editorial. Hace las primeras consultas. Los resultados son decepcionantes — el sistema devuelve fragmentos semánticamente parecidos pero sin contexto, sin síntesis, sin jerarquía. Conclusión: <em>"esto de la IA no está listo"</em>.</p>
+        <p>No. Lo que pasó es que montó capa 2 encima de capa 0, sin el piso intermedio. Basura adentro, basura afuera, pero con embeddings.</p>
+        <p>El error inverso también existe, y es más sutil. Alguien se emociona con el concepto de wiki compilada, de agentes que sintetizan, de páginas temáticas que se actualizan solas. Empieza a diseñar una arquitectura para capa 1 sin haber vivido antes en capa 0. Nunca practicó la disciplina de escribir un <code>about-me.md</code> honesto y mantenerlo. Nunca sintió el dolor real del <code>memory.md</code> que pesa. Termina con una arquitectura bien pensada que nadie va a llenar, porque el hábito de alimentarla no existe todavía.</p>
+        <p>La regla es incómoda pero simple: <strong>el nivel correcto es el que resuelve un dolor que ya sientes, no el que te promete algo que no has necesitado todavía</strong>.</p>
+        <p>Si nunca te ha dolido empezar desde cero con tu asistente, no necesitas capa 0. Si nunca te ha dolido buscar una idea que dijiste hace tres meses, no necesitas capa 1. Si nunca has querido hacerle preguntas abiertas a tu corpus completo, no necesitas capa 2. Adoptar un nivel sin el dolor que lo justifica produce sistemas que se abandonan en tres semanas, y una sensación vaga de que la IA "no era lo que prometían".</p>
+        <p>No era lo que vendían. La IA es bastante lo que prometía — cuando la infraestructura debajo está puesta en el orden correcto.</p>
+
+        <hr />
+
+        <h2>Dos lecturas que vienen</h2>
+        <p>Este mapa de tres capas aplica igual a un individuo y a una empresa, pero las rampas son distintas y vale la pena tratarlas por separado.</p>
+        <p><strong>Para ti como individuo</strong>, el recorrido es lineal y parte desde abajo. Empiezas en capa 0 con tres o cuatro archivos markdown. Subes a capa 1 cuando el log te duele. Subes a capa 2 cuando el corpus te duele. Cada transición responde a un síntoma concreto. El próximo capítulo de esta serie traza esa rampa con ejemplos reales — qué construir primero, qué señales indican que llegó el momento de subir, y qué herramientas encajan en cada peldaño.</p>
+        <p><strong>Para tu empresa</strong>, el recorrido es distinto y tiene su propia lógica. Una empresa no empieza en capa 0. No tiene sentido hacer un <code>about-me.md</code> corporativo — la identidad empresarial ya existe, dispersa en correos, contratos, tickets de soporte, conversaciones en Slack, la cabeza de quien lleva quince años trabajando ahí. El problema inverso de la empresa es que <strong>ya tiene capacidad cognitiva distribuida y la está perdiendo</strong>. Cada jubilación se lleva conocimiento. Cada contratación tarda meses en reconstruir contexto que ya existía pero nadie encontraba. El recorrido empresarial empieza entre capa 1 y capa 2. Eso es el tercer capítulo: Mente a Bordo — un concepto que pide su propio espacio.</p>
+
+        <hr />
+
+        <h2>Cierre</h2>
+        <p>Si después de leer esto sigues pensando que tu próxima herramienta de IA va a resolver el problema de fondo, probablemente no has llegado al piso donde el problema vive.</p>
+        <p>La pregunta útil no es <em>qué herramienta adoptar</em>. Es <em>en qué capa estoy y cuál es el siguiente dolor que espero sentir</em>. La respuesta a esa pregunta ordena todo lo demás — qué adoptar, qué construir, qué ignorar, y en qué orden. Sin esa pregunta hecha antes, cualquier herramienta nueva va a sentirse igual que las anteriores: útil unas semanas, fricción después.</p>
+        <p>Los siguientes dos capítulos de esta serie bajan del mapa al terreno. Primero para ti. Después para tu empresa.</p>
+      </div>
+    </section>
+
+    <hr class="libro-sep" />
+
+    <!-- CAPÍTULO 2 -->
+    <section id="cap2" class="libro-seccion">
+      <span class="capitulo-label">Capítulo 2</span>
+      <h1 class="capitulo-titulo">Tu IA genera más de lo que integras — y eso no se arregla con otra app</h1>
+      <p class="cap-subtitle"><em>Cómo reconocer cuándo es momento de subir de capa, y qué forma tiene la siguiente.</em></p>
+      <div class="prose">
+        <p>Si el capítulo anterior te sonó, es probable que estés en un lugar extraño. Un lugar donde la IA no es el problema — al revés, te funciona. Te funciona tanto que el problema ahora es otro: produce más de lo que puedes integrar.</p>
+        <p>Entraste hace meses. Puede que por vibe coding, construyendo algo que pensabas ajeno al desarrollo. Puede por trabajo — informes, correos, reuniones, ideas para un producto. Puede por curiosidad que se fue volviendo método. El punto es que hoy haces varias cosas al día con IA, tus conversaciones deciden cosas reales, tus chats producen fragmentos que valen, y tu manera de trabajar ya está cambiada.</p>
+        <p>Y aun así, algo se te escapa.</p>
+        <p>Abres Claude, empiezas una conversación buena, la cierras sin guardar nada. Sabes que hubo ideas valiosas ahí pero no vas a volver. Tienes quince chats pendientes de revisar "cuando tengas tiempo" — sabes que no vas a tener tiempo. Tu Notion tiene páginas a medio hacer que empezaste con entusiasmo hace tres semanas. Tu correo acumula hilos con decisiones importantes que tomaste con clientes y que no volviste a sistematizar. En WhatsApp hay cinco mensajes que te mandaste a ti mismo con links e ideas. Todo vive en sitios distintos. Nada se conecta con nada.</p>
+        <p>No es falta de disciplina. Es un problema estructural. El capítulo 1 lo planteó así: hay tres capas de infraestructura cognitiva con IA, y confundirlas — o quedarse en la primera cuando ya debiste subir — explica la sensación de estar corriendo detrás de tu propia productividad.</p>
+        <p>Este capítulo es el del salto. Cómo reconocerlo cuando te toca, y qué te espera arriba.</p>
+
+        <hr />
+
+        <h2>El reflejo que no funciona: buscar la app que lo resuelva todo</h2>
+        <p>Antes de entrar a las señales, vale la pena detenerse en qué es lo que probablemente estás haciendo ahora mismo.</p>
+        <p>Cuando el dolor aparece, el reflejo es buscar herramienta. Tal vez Notion no es lo suficientemente potente y necesitas Obsidian. Tal vez Obsidian no tiene integración con IA y necesitas Mem. Tal vez Mem no es suficiente y necesitas Reflect. Tal vez Reflect no escala y necesitas Notion otra vez pero con un workspace mejor armado. Cada unos o dos meses un video de YouTube te enseña la nueva herramienta que va a resolver el problema, la pruebas dos semanas, migras la mitad de tus cosas, y después la abandonas. Y el ciclo empieza de nuevo.</p>
+        <p>Lo que estás buscando no es una app. Es <strong>infraestructura</strong>. Y la palabra no es metafórica — es literalmente lo que describe lo que hace falta construir. Lo mismo que una ciudad depende de caminos, redes de agua y electricidad para que todo lo demás pueda existir encima, tu manera de trabajar con IA necesita una capa que sostenga todo lo demás. Daniel Miessler lleva un tiempo usando un término para esto: <a href="https://github.com/danielmiessler/Personal_AI_Infrastructure" target="_blank" rel="noopener"><em>Personal AI Infrastructure</em></a>. No es una app. No es un flujo. Es el suelo sobre el que después se construye todo.</p>
+        <p>Eso cambia la pregunta. Las apps son intercambiables — puedes pasar de Notion a Obsidian a Mem sin perder nada estructural, siempre que tu infraestructura esté pensada. Pero si no hay infraestructura debajo, ninguna app va a funcionar, porque estás pidiéndole a la app que haga el trabajo que le corresponde al suelo. A veces aciertas por suerte. La mayoría de las veces vuelves al punto de partida con más archivos migrados.</p>
+        <p>La pregunta útil antes de cualquier nueva app es: <strong>¿cuál es la señal concreta que me está pidiendo subir de capa?</strong> Si logras nombrarla, la respuesta casi se escoge sola.</p>
+        <p>Vamos a las señales.</p>
+
+        <hr />
+
+        <h2>Señales de que llegó el momento de subir de capa 0 a capa 1</h2>
+        <p>Capa 0 son tus tres o cuatro archivos. Quién eres, cómo escribes, qué pasó. Todo vive en una carpeta, todo es legible a ojo, todo se carga al inicio de cada sesión. Mientras eso alcance, no hay motivo para moverse. La pregunta es cuándo deja de alcanzar.</p>
+
+        <h3>Señal 1: dejaste de abrir tu propio memory.md</h3>
+        <p>Empezaste a escribir ahí con disciplina. Las primeras semanas registrabas decisiones, aprendizajes, contexto de sesión. En algún momento lo abriste y te dio pereza leerlo. Lo cerraste. La próxima vez ya ni lo abriste — le pediste al asistente que lo leyera él y te lo resumiera. Ya no es un recurso, es un archivo que pesa.</p>
+        <p>Esa es la primera señal, y es una de las más honestas. Tu memoria personal dejó de ser algo con lo que interactúas — se volvió un archivo grande y cronológico que prefieres evitar. Capa 0 depende de que el archivo sea pequeño y legible. Cuando ya no lo es, el archivo ya no cumple su función.</p>
+
+        <h3>Señal 2: buscas algo que sabes que está registrado y no lo encuentras</h3>
+        <p>"Hace como dos meses el asistente y yo decidimos que la estrategia para X era Y... ¿dónde quedó eso?" Abres tu <code>memory.md</code>, haces Cmd+F, no aparece. Lo buscas en chats de Claude, nada. Lo buscas en Notion, tampoco. Lo hablaste, te acuerdas perfectamente — pero el registro vive en algún archivo que no encuentras, o en un chat de Claude que cerraste hace semanas.</p>
+        <p>Eso es lo que pasa cuando tienes registro cronológico pero no tienes organización temática. Capa 0 archiva por fecha. Cuando necesitas recuperar por tema, capa 0 falla — y falla calladamente, porque tú crees que el sistema está funcionando hasta el momento en que necesitas buscar.</p>
+
+        <h3>Señal 3: tu contexto vive disperso en cinco sitios que no hablan entre sí</h3>
+        <p>Ideas en notas de Notion. Decisiones en chats de Claude. Hilos de correo con clientes donde tomaste decisiones que nunca documentaste en otro lado. Enlaces en mensajes a ti mismo en WhatsApp. Capturas de pantalla en el carrete del móvil. Cada herramienta tiene una parte del puzzle. Ninguna tiene el puzzle.</p>
+        <p>Capa 0 asume que tu contexto cabe en una carpeta. Cuando el contexto se desbordó a varias herramientas — porque tu trabajo es así de variado, o porque cada momento del día te pilla con una distinta a mano — capa 0 ya no te está sosteniendo. El sistema necesita algo que <em>unifique</em> esas entradas dispersas, no que compita con ellas.</p>
+
+        <h3>Señal 4: tu asistente te conoce pero no conoce tu tema</h3>
+        <p>Le explicas tu proyecto, te responde con confianza sobre ti — tu voz, tus clientes, tu estilo. Pero cuando le preguntas "qué tengo acumulado sobre X", se queda corto. No es porque no haya leído — es porque lo que tiene es cronológico, no temático. Tiene tu biografía, no tu conocimiento.</p>
+        <p>Esa asimetría es la más sutil de las cuatro señales, y es la más definitiva. Cuando el asistente te conoce a ti pero no conoce lo que tú conoces, estás pidiendo de capa 0 algo que capa 0 no puede darte. No es falla del asistente. Es falta de una capa que no existe todavía.</p>
+
+        <h3>¿Qué hacer cuando reconoces estas señales?</h3>
+        <p>Subir a capa 1 no es migrar a otra app. Es cambiar la forma del sistema. La app puede ser la misma que usas ahora — Notion, Obsidian, una carpeta de iCloud con markdown, lo que sea. Lo que cambia es cómo está organizado lo que hay dentro.</p>
+
+        <hr />
+
+        <h2>Cómo se ve tu capa 1</h2>
+        <p>El capítulo 1 describió la forma de capa 1 en abstracto. Aquí lo aterrizo a cómo se ve en la práctica, para alguien que probablemente no va a construir su propio sistema desde cero.</p>
+        <p>Antes de entrar a la forma, un punto que vale más que una frase al pasar. Cada persona tiene <strong>procesos</strong> propios: formas de capturar, de decidir, de revisar, de producir, de archivar. No son genéricos. Son tan personales como la letra. Dos personas haciendo el mismo trabajo —dos consultoras, dos diseñadores, dos abogados— tienen flujos internos distintos, tiempos distintos, criterios distintos para decidir qué vale y qué no. Esa manera tuya es la que tiene que quedar inscrita en la infraestructura. Capa 1 no es una plantilla genérica que adoptas — es la forma que toma <em>tu</em> manera de trabajar cuando se vuelve legible para un asistente. No es una migración a un sistema externo. Es hacer explícito el sistema que ya tienes implícito.</p>
+        <p>Con eso en mente, capa 1 separa cuatro tipos de contenido que en capa 0 vivían mezclados:</p>
+        <p><strong>Fuentes crudas.</strong> Los artículos que leíste, las transcripciones que capturaste, los PDFs que descargaste, las notas que tomaste de un video. Entran tal cual, se acumulan, y se quedan ahí como archivo. No los lees entero nunca — son el pozo del que se saca cuando hace falta.</p>
+        <p><strong>Conocimiento compilado.</strong> Páginas temáticas que <em>resumen y conectan</em> lo que hay en las fuentes crudas. Una página sobre "decisiones de pricing del negocio" que crece cada vez que tomas una decisión nueva. Una página sobre "cómo estoy pensando la arquitectura del producto" que se actualiza cuando el pensamiento cambia. Estas páginas no se acumulan en línea — se <em>reescriben</em>. Lo importante es que cada una contenga el estado actual del tema, no la historia.</p>
+        <p><strong>Índices.</strong> Mapas de lo que hay. Un archivo que lista todas las páginas temáticas con un resumen de una línea cada una. Otro que lista lo que hay en fuentes crudas. Sirven para que tú — y tu asistente — puedan saltar directo al archivo correcto sin leer el corpus entero.</p>
+        <p><strong>Log cronológico.</strong> Aquí sí va lo que antes era tu <code>memory.md</code> completo. Lo que pasó, cuándo, con qué resultado. Pero ya no es el archivo central del sistema — es uno más, y vive al margen. Se consulta cuando necesitas trazabilidad, no cuando necesitas conocimiento.</p>
+        <p>Esa separación es la forma de capa 1. No importa si la implementas en Notion con cuatro bases de datos vinculadas, en Obsidian con cuatro carpetas, o en carpetas del Finder con markdown. La herramienta es lo menos importante. Lo importante es que los cuatro tipos <em>no se toquen entre ellos</em> — que cada uno haga su trabajo.</p>
+        <p><a href="https://github.com/jamoralesr/Scriptorium" target="_blank" rel="noopener">Scriptorium</a>, el proyecto que estoy construyendo para mi propio flujo editorial, tiene exactamente esa forma. Pero Scriptorium es mi caso, no una plantilla a copiar. El patrón es transferible, la implementación no. Tu capa 1 puede vivir entera dentro de Notion si Notion es lo que tienes a mano y ya sabes moverte ahí. El ejercicio no es adoptar un sistema ajeno — es reorganizar lo que ya tienes bajo esa lógica de cuatro partes, respetando tus procesos, no reemplazándolos.</p>
+
+        <h2>El asistente cambia de rol: de responder a mantener</h2>
+        <p>Hay algo importante que pasa cuando cruzas a capa 1, y merece una sección propia.</p>
+        <p>En capa 0, el asistente responde. Le preguntas, te contesta. La relación es conversacional. En capa 1 eso sigue pasando, pero además aparece algo nuevo: el asistente se vuelve el que <strong>mantiene</strong> la infraestructura. Cada vez que interactúas con él sobre tu trabajo, el asistente no solo responde — <em>actualiza</em> la página temática cuando hubo una decisión nueva, <em>agrega</em> fuentes al pozo crudo cuando aparece material que vale, <em>adecúa</em> los índices para que sigan siendo navegables, <em>complementa</em> páginas existentes cuando una nueva conversación aporta algo que faltaba, <em>une</em> ideas que vivían en páginas separadas cuando detecta la conexión, y <em>enriquece</em> lo que ya está escrito con los matices que van apareciendo.</p>
+        <p>Seis verbos, seis tipos de mantenimiento distintos. Cada conversación que tienes produce algún movimiento en la infraestructura. No porque tú se lo pidas explícitamente cada vez — sino porque el sistema está diseñado para que el asistente lo haga como parte del trabajo.</p>
+        <p>Y acá aparece la pieza que más le cuesta entender a la mayoría de la gente, porque va en contra de casi todo lo que se está diciendo sobre IA en público. El asistente no está <strong>reemplazando</strong> tu pensamiento. Lo está <strong>extendiendo</strong>. La diferencia no es semántica, es estructural. Un reemplazo opera en lugar de ti, decide por ti, produce en tu ausencia. Una extensión opera contigo, afina tu criterio sin sustituirlo, produce cosas que llevan tu forma aunque tú no hayas tecleado cada palabra. Lo que se vende masivamente hoy es el reemplazo — <em>automatiza todo, deja que la IA lo haga por ti, recupera horas de tu vida</em>. Lo que acá se está construyendo es otra cosa: una prótesis cognitiva que hace visible, organizable y recuperable lo que tú ya haces y piensas, sin despojarte de la parte que te hace a ti.</p>
+        <p>Pero conviene decir algo incómodo acá, porque si no se dice el argumento queda a medias. El debate público sobre IA oscila entre dos polos que se retroalimentan: por un lado el embeleso —proyectos prometiendo agentes que lo hacen todo solos— y por otro el miedo a que la IA nos reemplace en el trabajo. Los dos polos tienen el mismo error: ponen la agencia en la IA, como si el reemplazo fuera algo que <em>ella</em> va a decidir hacer. No va así.</p>
+        <p>El reemplazo no lo decide la IA, o OpenAI o Sam Altman. Lo decide cada uno. Quien elige no participar en lo que hace —delegarlo entero, <strong>desentenderse del proceso</strong>, quedarse solo con el resultado— se hace reemplazable. No porque la IA sea poderosa. Porque él mismo redujo su aporte a cero. La IA no desplaza al que se apalanca en ella para hacer mejor su oficio; desplaza al que se desapalanca del suyo creyendo que automatizar significa ausentarse. Un carpintero que solo aprieta un botón de una máquina CNC (Control Numérico Computarizado) y no entiende la madera es reemplazable por el siguiente que también aprieta el botón. El que tiene criterio sobre la veta de la madera, que decide cuándo forzar la máquina y cuándo hacerlo a mano, que sabe qué pedirle a la máquina — ese no se reemplaza fácil. La máquina es la misma. Lo que cambia es la relación con el oficio.</p>
+        <p>Capa 1 es infraestructura de apalancamiento, no de ausencia. El asistente mantiene la infraestructura precisamente para que tú puedas seguir participando en lo importante — con más claridad, con mejor contexto, con menos tiempo gastado en tareas que no te hacen mejor en lo tuyo. Pero la decisión de participar sigue siendo tuya. Ese es el umbral. Cruzarlo en la dirección equivocada no es un riesgo que te imponga la tecnología — es una elección personal que a veces se toma sin darse cuenta.</p>
+        <p>Esa distinción es la que justifica todo el trabajo de pensar la infraestructura antes de construirla. Un sistema pensado para reemplazarte termina pareciéndose a un promedio de usuarios — porque los reemplazos se estandarizan. Un sistema pensado para extenderte termina pareciéndose más a ti cada mes que pasa — porque cada interacción lo calibra hacia tu forma. El valor de capa 1 no es que la IA haga tu trabajo. Es que la IA hace el mantenimiento invisible que nadie quiere hacer, para que tú puedas concentrarte en lo irreducible: el juicio, el gusto, la decisión sobre qué vale.</p>
+        <p>Capa 1 funciona porque la forma del sistema está puesta. Y lo que se construye encima es una extensión, no un sustituto — siempre que tú sigas estando ahí.</p>
+
+        <hr />
+
+        <h2>Señales de que llegó el momento de subir de capa 1 a capa 2</h2>
+        <p>Es probable que no estés acá todavía. Pero vale la pena saber cómo se ven las señales, porque cuando lleguen las vas a reconocer más rápido si ya leíste sobre ellas.</p>
+        <p><strong>El corpus ya no cabe en tu cabeza.</strong> Tienes tantas páginas temáticas que ni el índice alcanza. No recuerdas qué tienes escrito sobre qué, y el acto de navegar se volvió un trabajo en sí mismo. Ya no estás consultando tu corpus — estás buscando en él.</p>
+        <p><strong>Quieres hacer preguntas que cruzan páginas.</strong> "¿Qué he pensado en los últimos tres meses que conecte A con B?" La respuesta está distribuida entre cinco páginas distintas, y leerlas todas para construirla a mano ya no tiene sentido. Necesitas que el sistema cruce las relaciones por ti.</p>
+        <p><strong>Otra persona necesita entrar a tu corpus.</strong> Tu socio, tu asistente humano, tu equipo. Navegar tu sistema a mano es impráctico para alguien que no lo conoce. Necesitas una capa de consulta que funcione sin tener que aprender la estructura.</p>
+        <p><strong>Empiezas a sentir que tu sistema es más rico de lo que puedes consultar.</strong> Esta es la señal más subjetiva y la más reveladora. Tienes la sensación de que tu corpus sabe cosas que tú olvidaste, y no puedes sacarlas a flote por navegación manual. Es el momento en que el corpus cruza un umbral donde la búsqueda semántica empieza a pagar su costo.</p>
+        <p>En el capítulo 1 dejamos una lista de las opciones concretas de capa 2: Mem0, Zep, Letta, mempalace. Cada una con su encaje. No las repito aquí. Lo que sí vale la pena repetir es que capa 2 no reemplaza a capa 1 — <em>la consulta</em>. Tu capa 1 sigue siendo filesystem, markdown, estructura manual. Capa 2 es una capa de búsqueda y relaciones encima.</p>
+
+        <hr />
+
+        <h2>Hasta aquí la rampa individual</h2>
+        <p>Si este lector eres tú, el tercer capítulo de la serie no es la continuación natural. Capa 2 es el techo para el caso personal, y la mayoría de la gente va a vivir cómoda en algún lugar entre capa 1 y capa 2 por bastante tiempo.</p>
+        <p>Pero si además de trabajar así, llevas una empresa — chica, mediana, con socios, con equipo, con clientes que acumulan historia — el siguiente problema ya no es tuyo. Es de la empresa. Y ahí la lógica cambia entera: no se sube desde capa 0, no se recorre una rampa lineal, y el objetivo deja de ser tu productividad personal para volverse algo que merece otro nombre.</p>
+        <p>Ese es el capítulo 3.</p>
+      </div>
+    </section>
+
+    <hr class="libro-sep" />
+
+    <!-- CAPÍTULO 3 -->
+    <section id="cap3" class="libro-seccion">
+      <span class="capitulo-label">Capítulo 3</span>
+      <h1 class="capitulo-titulo">Tu empresa es más reemplazable de lo que crees — y eso no se arregla con otro SaaS</h1>
+      <p class="cap-subtitle"><em>Por qué el conocimiento operativo de tu empresa se está volviendo commodity, qué parte sí te hace irreemplazable, y cómo se construye una IA que vive adentro en lugar de una que te estandariza.</em></p>
+      <div class="prose">
+        <p>Hay una escena que se repite en las empresas chilenas estos días. Alguien entra a la oficina —el sobrino que sabe de computación, el encargado de sistemas, el socio más joven— y dice alguna variación de esto: <em>"tenemos que implementar IA"</em>. A veces trae una propuesta de un SaaS que promete automatizar el área de soporte. A veces trae un video de YouTube donde alguien muestra cómo ChatGPT le redactó quince correos en dos minutos. A veces solo trae ansiedad: todos los competidores están hablando de IA y nosotros no.</p>
+        <p>El dueño del negocio escucha. Asiente. Pregunta cuánto cuesta. Pospone la decisión una semana. Dos semanas después vuelve a escuchar la misma conversación con otra herramienta distinta. Termina contratando una, o dos, o ninguna. Nada de eso mueve la aguja en lo que importa.</p>
+        <p>Porque el problema que está intentando resolver no es el que le están vendiendo.</p>
+        <p>Lo que está pasando en las empresas ahora mismo tiene dos lados que casi nadie está mirando juntos. Por un lado, la IA está haciendo commodity buena parte del conocimiento operativo de casi cualquier negocio — y lo está haciendo más rápido de lo que se asimila. Por otro, la mayoría de las empresas nunca articularon qué parte de su trabajo <em>no</em> es commodity. Esa parte existe, pero vive en las cabezas de tres o cuatro personas, en conversaciones que nadie guardó, en decisiones cuya lógica nadie explicó.</p>
+        <p>Resultado: mientras llega la ola, la empresa no sabe qué defender porque nunca nombró lo que tenía.</p>
+        <p>Si los dos capítulos anteriores de esta serie llegaron hasta ti, probablemente el mapa de capas ya te sonó familiar en el plano personal: capa 0 son tres archivos markdown para que tu asistente te conozca, capa 1 es la infraestructura cognitiva donde el conocimiento se compila en vez de acumularse, capa 2 es la memoria con búsqueda semántica cuando el corpus ya no cabe en la cabeza. Esa rampa funciona para un individuo: se sube cuando duele, un peldaño a la vez.</p>
+        <p>Para una empresa la lógica se da vuelta. El fundador de Pyme no está en capa 0 esperando subir a capa 1 — eso es el recorrido del individuo. La empresa <em>como tal</em> nunca estuvo en capa 0, porque la empresa no es una persona que necesita que un asistente la conozca. La empresa es una entidad que ya opera, ya decide, ya atiende clientes, ya produce conocimiento distribuido entre varias cabezas. Su problema no es arrancar — es que lleva años acumulando capital cognitivo sin articularlo, y ahora llegó una ola que lo pone a prueba de una manera nueva.</p>
+        <p>Dicho de otra manera: el fundador está parado entre capa 1 y capa 2 sin saberlo. Tiene capa 1 <em>de facto</em> — conocimiento operativo disperso, procesos no escritos, criterios en cabezas de personas clave. Y tiene medio pie en capa 2 — a veces busca en correos viejos, en archivos de proyectos pasados, en conversaciones de WhatsApp con un socio. Pero nada de eso está articulado como <strong>infraestructura</strong>. Está ahí, activo, pero invisible para cualquier IA que contrate, para cualquier empleado nuevo que ingrese, y a menudo para el propio empresario cuando quiere tomar una decisión apoyándose en la historia de la empresa.</p>
+        <p>Este capítulo es para ese lugar. No propone cómo salir de él —ese es otro tipo de trabajo— pero sí propone una manera de nombrarlo con precisión, que es lo primero que hace falta.</p>
+
+        <hr />
+
+        <h2>El reflejo de los decretos vacíos</h2>
+        <p>Antes de entrar al fondo, conviene nombrar el reflejo más común en empresas que recién llegan a esto, porque probablemente alguien en tu mesa ya lo propuso.</p>
+        <p>El patrón se llama <em>decreto vacío</em>. Va así: el directorio o la gerencia emite una directiva que dice, con distintas palabras según la cultura corporativa, "usen IA". A veces se refuerza con capacitaciones obligadas a asistir de cómo usar IA. Punto. Sin guía sobre qué hacer. Sin indicación de qué herramientas internas pueden conectarse. Sin ejemplos de flujos concretos. Sin nadie asignado a hacer que la cosa pase de verdad.</p>
+        <p>Daniel Miessler, uno de los pocos autores que está mirando implementaciones empresariales de IA con algo de seriedad, en su artículo <a href="https://danielmiessler.com/blog/weak-vs-strong-ai-rollouts" target="_blank" rel="noopener">Weak vs. Strong AI Rollouts</a>, escribe que más del 90% de los despliegues corporativos que él ve funcionan así. Un mensaje vago desde arriba y silencio después. El resultado es predecible: cada empleado prueba por su cuenta, algunos se enganchan, la mayoría no, y a los seis meses alguien pregunta en una reunión de directorio por qué la inversión en IA no se refleja en nada.</p>
+        <p>La alternativa —lo que Miessler llama despliegues fuertes— se ve distinta. Alguien asignado a tiempo completo para empujar la adopción. Documentación sobre qué herramientas internas de la empresa están conectadas a qué IA. Ejemplos concretos de workflows. Videos cortos que muestran cómo se hace una tarea específica. Y en las empresas más avanzadas, un <em>harness</em> interno — una infraestructura configurada que captura cómo trabaja esta empresa en particular y se la entrega a la IA como punto de partida.</p>
+        <p>La palabra <em>harness</em> viene del mundo técnico. Significa arnés: la estructura que conecta un motor con lo que el motor tiene que mover. En este contexto es la capa que conecta la IA genérica con el trabajo específico de <em>esta</em> empresa. Volveré a esa palabra varias veces porque es la que mejor describe lo que hace falta construir.</p>
+        <p>El decreto vacío es la mitad del problema. La otra mitad es más incómoda.</p>
+
+        <hr />
+
+        <h2>El conocimiento que ya es commodity (y las empresas pagan por mantenerlo)</h2>
+        <p>Vale la pena detenerse en una distinción que está cambiando silenciosamente la economía del conocimiento. Miessler, en su artículo <a href="https://danielmiessler.com/blog/ai-unmasked-our-work-as-scaffolding" target="_blank" rel="noopener">AI Unmasked Our Work as Scaffolding</a>, lo resume con una frase que incomoda: la mayor parte del trabajo profesional no es el trabajo — es el <em>scaffolding</em> que rodea al trabajo.</p>
+        <p>Scaffolding, en inglés, significa andamiaje. La estructura provisional que se monta alrededor de un edificio para poder construirlo. En trabajo de conocimiento, el scaffolding es todo lo que no es la decisión final: el contexto que hay que reunir antes de decidir, las plantillas que hay que actualizar, los formatos que hay que cumplir, los workflows que hay que mantener, los informes que hay que generar, las bases de datos que hay que alimentar, las herramientas que hay que parchar. Todo lo que hace posible el 10% donde realmente se decide algo.</p>
+        <p>Miessler estima que entre el 75% y el 99% del trabajo de conocimiento profesional es scaffolding. En ciberseguridad, el 99% no es encontrar vulnerabilidades nuevas — es armar contexto sobre el objetivo, mantener herramientas, construir workflows que permiten producir pruebas consistentes a escala. En desarrollo de software, la mayor parte del tiempo se va en infraestructura, autenticación, bases de datos, librerías. En consultoría de alta gama —McKinsey, BCG, Bain— no hay originalidad en cada engagement: hay entrevistas, plantillas aplicadas al caso, y un 2-12% de salsa única.</p>
+        <p>Esta es la parte que la IA aprendió a hacer bien, y lo que es más incómodo, a veces mejor que los profesionales que la hacían antes. Los skills de Agent que Anthropic liberó el año pasado golpearon directo al mercado legal porque demostraron que un bloque enorme del scaffolding jurídico —redacción de NDAs, due diligence estándar, revisión de contratos de plantilla— podía ejecutarse con calidad profesional desde IA bien configurada. El trabajo no era difícil. Lo difícil era mantener el andamiaje. Y la IA come andamiaje para el desayuno.</p>
+        <p>Esto aplica igual a tu empresa. Una parte significativa de lo que tus empleados hacen todos los días es scaffolding. Gestión de correo, preparación de informes estándar, búsqueda de información, actualización de planillas, seguimiento de procesos, generación de documentos repetitivos. Ese trabajo <strong>ya está dejando de requerir un humano</strong>, y la única razón por la que sigues pagando por él es porque tu empresa aún no reconfiguró cómo lo resuelve.</p>
+        <p>La conclusión honesta es incómoda: mientras sigas pensando en la IA como "una herramienta más que contratar", vas a estar manteniendo scaffolding caro al mismo tiempo que tus competidores lo están convirtiendo en commodity. La pregunta no es si vas a contratar una IA. La pregunta es qué parte de lo que hoy hace tu empresa <em>tiene sentido</em> que lo siga haciendo un humano.</p>
+
+        <hr />
+
+        <h2>La parte que no es commodity (y probablemente no está escrita en ninguna parte)</h2>
+        <p>Hay una pregunta que casi ningún fundador de Pyme se ha detenido a responder con rigor: <em>¿qué hace a mi empresa difícil de copiar?</em></p>
+        <p>El reflejo es responder con cosas que suenan bien pero no resisten análisis. <em>"Nuestra calidad"</em>. Todo el mundo dice eso. <em>"Nuestro equipo"</em>. Rotable. <em>"Nuestra experiencia"</em>. No está escrita en ninguna parte. <em>"Nuestras relaciones con clientes"</em>. Reales, sí, pero si el que tiene las relaciones se va, se van con él.</p>
+        <p>La pregunta más filosa la formuló Miessler hace poco, en su artículo <a href="https://danielmiessler.com/blog/the-fire-of-fires" target="_blank" rel="noopener">AI SaaS Replacement is the Fire of Fires</a>, y vale la pena transcribirla sin dulcificar: <em>"¿eres una interfaz? ¿eres una base de datos? ¿eres data? ¿qué eres? ¿qué te hace a ti, ti? ¿qué te hace difícil de copiar?"</em> Y agregaba: la mayoría de las empresas no tiene una buena respuesta a esta pregunta. Un porcentaje masivo.</p>
+        <p>Porque aquí está lo que está pasando: hoy un competidor puede pegar la URL de tu empresa en su propio sistema de IA y pedirle <em>"replica la funcionalidad de esta empresa en mi código, usa esto como referencia"</em>. Si lo que tu empresa hace es scaffolding estándar con marca diferente, esa instrucción funciona. Si lo que tu empresa hace tiene algo irreducible —una forma de decidir, un criterio editorial, una relación con el cliente que no se documenta en ningún contrato, una manera de resolver problemas que no está en los manuales— esa instrucción no lo captura. <strong>Pero solo si tú ya lo articulaste</strong>.</p>
+        <p>Y ahí está el problema central: <strong>la mayoría de las Pymes nunca articularon su salsa única</strong>. No porque no la tengan. Todas la tienen, o no existirían. La tienen porque hay un fundador o un equipo fundacional que durante años tomó miles de decisiones pequeñas que, sumadas, construyeron una forma particular de hacer las cosas. Esa forma vive en la cabeza de tres o cuatro personas. Nadie la escribió nunca, en parte porque nunca hizo falta — las decisiones se tomaban, los clientes se fidelizaban, la empresa seguía operando.</p>
+        <p>Ahora sí hace falta. No porque la IA vaya a reemplazarte mañana. Porque la IA va a estandarizar todo el scaffolding a su alrededor, y en ese paisaje, lo que te diferencia es únicamente la parte irreducible. Si esa parte sigue viviendo en cabezas sin articulación, es invisible — para tus empleados nuevos, para los clientes que la intuyen pero no la pueden nombrar, y lo que es más grave, para la propia IA que vas a usar.</p>
+
+        <hr />
+
+        <h2>El riesgo que nadie nombra: que tu propia IA te estandarice</h2>
+        <p>Esta es la parte que me gustaría que quedara grabada, porque es contraintuitiva y rara vez se conversa.</p>
+        <p>Cuando una empresa contrata una IA sin haber articulado antes su forma particular de trabajar, lo que ocurre no es que la IA haga bien o mal el trabajo. Lo que ocurre es que la IA hace el trabajo <em>como lo haría cualquier otra empresa</em>. Porque eso es lo que aprendió en su entrenamiento: el promedio de cómo se hace ese trabajo en el mundo.</p>
+        <p>Tu IA redacta correos como los redactan en cualquier consultora. Tu IA resuelve tickets de soporte como los resuelven en cualquier ecommerce. Tu IA arma informes como los arman en cualquier Pyme del rubro. Por separado cada cosa parece razonable. Mirado en conjunto, después de seis meses, tu empresa empieza a parecerse a cualquier otra empresa. Tu diferenciación se disuelve por la puerta de atrás.</p>
+        <p>No es que un competidor te copie. Es que tu propia infraestructura te estandariza.</p>
+        <p>Y esto es particularmente cruel, porque el fundador que contrató la IA pensando que iba a <em>amplificar</em> su forma de hacer las cosas termina observando cómo esa forma se va disolviendo reunión tras reunión, correo tras correo, informe tras informe. La IA no miente — hace lo que se le dijo que hiciera. Lo que no se le dijo es que existía una forma particular de hacer las cosas que valía la pena preservar. Entonces opera con la única forma que conoce: la genérica.</p>
+        <p>Ahí es donde entra el concepto de <em>harness empresarial</em>. Un buen harness —Miessler insiste mucho en esto— no le dice a la IA <em>cómo</em> hacer las cosas paso a paso. Le dice <em>quién eres, qué te importa, qué consideras bueno, qué consideras malo, con qué criterios decides, a qué clientes sirves, qué estilo tiene tu empresa</em>. La IA es suficientemente buena hoy para descubrir el cómo. Lo que no puede inventar es el quién.</p>
+        <p>Esa distinción —contexto sobre identidad en lugar de prescripción sobre método— es lo que separa una IA que amplifica una empresa de una IA que la erosiona. Y la construcción de ese contexto no es algo que se compre. Es algo que se articula. Requiere sentarse a escribir lo que durante años se dio por obvio.</p>
+
+        <hr />
+
+        <h2>Capturar lo humano: materia prima, no ventaja</h2>
+        <p>Ahora, una aclaración importante porque puede sonar como si estuviera descartando todo el trabajo de tus empleados. No lo estoy.</p>
+        <p>El conocimiento y la experiencia que tus personas acumulan en el tiempo importan — solo que importan por una razón distinta a la que solíamos pensar. No son ventaja competitiva en el sentido clásico. Como decíamos antes, la mayor parte de lo que saben hacer tus empleados veteranos es scaffolding que se va a commoditizar. Pero la captura de ese conocimiento sigue siendo crítica, porque es la <em>materia prima</em> sobre la cual se puede destilar después lo irreducible.</p>
+        <p>Dicho de otra manera: lo capturado es el mineral. Lo irreducible es el metal refinado. No puedes refinar si nunca extrajiste. El empleado que lleva 15 años no tiene 15 años de ventaja competitiva defendible — tiene 15 años de observaciones, decisiones, clientes atendidos, excepciones manejadas, patrones detectados. La mayor parte de eso, si lo escribieras hoy, podría ejecutarlo una IA con el contexto correcto. Pero dentro de toda esa masa hay un 2% o un 10% que es donde vive el criterio único, la forma particular, el juicio que nadie más aplica igual. Y ese porcentaje irreducible no se puede identificar sin haber capturado antes el volumen entero.</p>
+        <p>Una vez que hay volumen de captura, viene la etapa más interesante — <em>destilar</em>. Mirar todo lo capturado y separar el scaffolding (que la IA va a ejecutar mejor que cualquier humano nuevo) de lo irreducible (que hay que articular con cuidado, porque es ahí donde vive la identidad de la empresa). Lo irreducible se convierte en el corazón del harness. Lo scaffolding se automatiza.</p>
+        <p>Sin la captura no hay destilación. Sin la destilación la empresa termina con una IA genérica operando sobre un caos de documentos. Las dos etapas son necesarias, y van en ese orden.</p>
+
+        <hr />
+
+        <h2>Procesos: no como ventaja, como terreno de operación</h2>
+        <p>Hay una confusión que vale la pena disipar porque es común en consultoría tradicional.</p>
+        <p>Durante décadas se le vendió a las Pymes la idea de que <em>tener procesos</em> era una ventaja competitiva. Que documentar workflows, certificarse en ISO, tener manuales de procedimientos, te hacía más defendible en el mercado. Eso fue cierto en su momento. Ya no lo es. Un competidor nuevo puede levantar procesos equivalentes con IA en una tarde, especialmente si los tuyos están publicados o son estándar del rubro.</p>
+        <p>Pero los procesos siguen siendo importantes — por otra razón. No son ventaja, son <em>terreno de operación</em>. Son el medio donde la IA hace su trabajo dentro de tu empresa. Si tus procesos no están articulados, la IA opera con procesos genéricos que trae de fábrica. Si están articulados, la IA opera con los tuyos — con tu forma particular de hacer las cosas.</p>
+        <p>La diferencia no es que tu proceso sea mejor que el del competidor. La diferencia es que tu empresa trabajando con IA sigue pareciéndose a tu empresa, mientras que la del competidor empieza a parecerse al promedio del rubro. Con el tiempo, esa divergencia es la que construye diferenciación real, no porque tu proceso sea superior sino porque tu empresa permanece reconocible como tal a través de la adopción masiva de IA. Todos los demás se están uniformando. Tú no.</p>
+        <p>Esto es contraintuitivo. Durante estos días, se nos está enseñando a pensar la IA como estandarización que permite escalar. En la nueva economía del conocimiento, la IA es estandarización que erosiona. La única manera de que no erosione tu empresa en particular es darle el terreno específico sobre el que debe operar. Ese terreno son tus procesos articulados. No como ventaja frente al mercado. Como defensa contra la propia IA que vas a usar.</p>
+
+        <hr />
+
+        <h2>Mente a Bordo: un sistema vivo, centrípeto, adaptable</h2>
+        <p>Después de todo esto ya puedo nombrar un concepto en el que estoy trabajando con precisión. Y antes de desarrollarlo conviene explicar de dónde viene el nombre, porque el origen aporta la imagen exacta de lo que estoy construyendo.</p>
+        <p>El término viene del libro <a href="https://en.wikipedia.org/wiki/To_Sleep_in_a_Sea_of_Stars" target="_blank" rel="noopener"><em>To Sleep in a Sea of Stars</em></a>, de Christopher Paolini, una novela de ciencia ficción ambientada dos siglos y medio en el futuro. En ese universo, las naves estelares no son pilotadas por IAs externas ni por sistemas computacionales que se cargan al inicio del viaje. Cada nave tiene una <em>ship mind</em> — una mente a bordo — que es literalmente una entidad consciente viviendo dentro de la nave, fusionada con sus sistemas, responsable de navegación, soporte vital y coordinación con la tripulación humana. Conoce a cada miembro del equipo, reconoce las peculiaridades del vehículo, acumula experiencia de cada viaje. No es un servicio contratado afuera que opera la nave desde un centro de datos lejano. Es parte de la nave, y la nave no sería la misma sin ella. Cuando la tripulación cambia, la mente a bordo sigue. Cuando la nave envejece, la mente envejece con ella. <strong>Es identidad encarnada en infraestructura</strong>.</p>
+        <p>La analogía con una empresa es inmediata — y es la razón por la que este capítulo no se titula con metáforas marineras. Los barcos son infraestructura antigua, anclada al puerto, lenta y predecible. Las naves son otra cosa: sistemas que viajan en territorios cambiantes, enfrentan situaciones imprevisibles, dependen de sus propios recursos para sobrevivir en entornos hostiles, y necesitan una inteligencia interna que las mantenga coherentes en ese tránsito. Una empresa en 2026 se parece mucho más a una nave que a un barco.</p>
+        <p><strong>Mente a Bordo, entonces, es el harness de tu empresa entendido como entidad viviente</strong> — la infraestructura que captura lo que tu empresa hace, destila lo irreducible, articula los procesos como terreno de operación, y le entrega ese conjunto a la IA como contexto permanente. Pero es más que un harness técnico: es una mente que vive dentro del negocio, que crece con él, que acumula experiencia, y que preserva la identidad de la empresa a través del tiempo y los cambios de tripulación.</p>
+        <p>Esa mente a bordo tiene tres atributos que la hacen funcional en un entorno hostil como el actual:</p>
+        <p>Es <strong>centrípeto</strong>: el conocimiento que se acumula se queda adentro. No se procesa en servicios externos que lo integran a su modelo general. No se distribuye en una docena de SaaS donde cada uno ve una tajada y nadie ve el conjunto. La captura, la destilación, el harness — todo vive dentro de la empresa, accesible para la gente de la empresa y para la IA que la empresa usa, pero no exportado hacia afuera. En un mundo donde lo que sale afuera se estandariza, lo centrípeto es protección.</p>
+        <p>Es <strong>vivo</strong>: no es un documento que se escribe una vez y se archiva. Es <strong>infraestructura</strong> que se actualiza cada vez que alguien en la empresa toma una decisión, atiende un cliente, resuelve un problema. El harness crece con la empresa. Si no crece, muere — y con él la diferenciación que estaba sosteniendo.</p>
+        <p>Y es un <strong>sistema viable</strong> en el sentido más básico del término: toda empresa que quiere persistir necesita ser capaz de sobrevivir, adaptarse y mantener su identidad en un entorno que cambia. Las tres condiciones son necesarias. Sobrevivir sin adaptarse es fósil. Adaptarse sin mantener identidad es disolución. Mantener identidad sin adaptarse es nostalgia. Un sistema viable hace las tres cosas simultáneamente, y eso requiere infraestructura — no pura voluntad.</p>
+        <p>Lo que Mente a Bordo resuelve es esa triada. Sobrevivir: manteniendo la empresa operativa mientras el scaffolding se commoditiza. Adaptarse: operando con IA como extensión, no como reemplazo. Mantener identidad: preservando lo irreducible articulado, que es lo único que impide que la empresa se disuelva en el promedio.</p>
+        <p>No es un producto. Es una manera de construir infraestructura cognitiva empresarial. Las herramientas con las que se construye son intercambiables — hoy es markdown y Claude, mañana es otra cosa. Lo que no es intercambiable es la decisión de construirla adentro, mantenerla viva, y articular en ella lo que hace y define a la empresa. Una nave sin mente a bordo puede navegar un rato con piloto automático — pero cuando cambia el entorno, cuando aparece lo imprevisto, cuando la tripulación rota, la nave sin mente a bordo deja de ser <em>esa</em> nave y pasa a ser una cualquiera. El paralelo con las empresas en la próxima década no es metáfora. Es la descripción literal de lo que está pasando.</p>
+
+        <hr />
+
+        <h2>El foso que queda cuando los demás se disuelven</h2>
+        <p>Termino con una idea que leí hace poco y que me parece el cierre natural de todo esto. Es de Dheer Gupta, en su artículo <a href="https://dheer.co/only-moat-ai-cant-kill/" target="_blank" rel="noopener">Distribution is the only moat AI can't kill</a> y la articula en una frase: <strong>distribución es el único foso que la IA no puede matar</strong>.</p>
+        <p>El argumento es simple. Este año, 2026, dos cosas cambiaron. Construir se volvió barato — cualquiera puede prototipar en una tarde, replicar funcionalidad de un competidor con una URL, montar un SaaS en una semana. Ser escuchado se volvió caro — cada newsletter que abre tu cliente potencial tiene cincuenta startups nuevas compitiendo por atención, y el lector elige ninguna, porque elegir una de cincuenta es trabajo que nadie quiso. Los canales que antes funcionaban están saturados.</p>
+        <p>Para una Pyme esto significa algo concreto. Mientras tu harness interno te protege de la estandarización por dentro, lo que te protege por fuera es quién te conoce, quién confía en ti, quién te llama a ti y no a otro. Eso no se commoditiza. Eso se construye a lo largo de años, con cada cliente bien atendido, cada problema resuelto, cada palabra dicha en el momento justo. Y la IA no puede falsificarlo — puede amplificar la distribución de una empresa que ya la tiene, pero no puede construirla desde cero con credibilidad.</p>
+        <p>La pregunta que deja esto para ti como fundador de Pyme es simple y dura: <em>¿quiénes son las 20, 50 o 100 personas, dependiendo del tamaño del emprendimiento, que se darían cuenta si tu empresa desapareciera mañana?</em> Si no puedes nombrarlas, tu base es más frágil de lo que piensas. Si puedes, ahí está tu foso — y la tarea de los próximos años es cuidarlo mientras construyes la infraestructura interna que te permite escalar sin disolverte.</p>
+      </div>
+    </section>
+
+    <hr class="libro-sep" />
+
+    <!-- EPÍLOGO -->
+    <section id="epilogo" class="libro-seccion">
+      <span class="capitulo-label">Cierre</span>
+      <h1 class="capitulo-titulo">Los tres capítulos son una sola cosa</h1>
+      <div class="prose">
+        <p>Llegado aquí conviene detenerse y mirar el libro completo, porque los tres capítulos no son tres temas distintos — son un solo argumento desplegado en tres escalas.</p>
+        <p>En el capítulo 1 vimos el mapa: hay tres capas de infraestructura cognitiva con IA, cada una resuelve lo que la anterior no puede, y saltárselas es el error más común. En el capítulo 2 recorrimos la rampa individual: cómo una persona sube de capa 0 a capa 1 cuando su producción con IA empieza a desbordarla, y qué forma toma la infraestructura personal cuando deja de ser tres archivos markdown y se vuelve un sistema compilado. En el capítulo 3 miramos el caso empresarial: cómo una Pyme protege su identidad en un entorno donde casi todo se está commoditizando, y cómo se construye una mente a bordo que vive dentro del negocio en lugar de contratarse afuera.</p>
+        <p>Los tres capítulos parecen tratar problemas distintos. No lo hacen. Tratan el mismo problema en tres escalas — persona, recorrido, empresa — y la empresa no es más que el lugar donde las personas se articulan entre sí. No hay mente a bordo empresarial sin mentes a bordo individuales. No hay infraestructura cognitiva de una Pyme sin infraestructura cognitiva de cada uno de sus miembros.</p>
+        <p>Una empresa no es una entidad abstracta que piensa por sí misma. Es un conjunto de individuos que operan, deciden y producen conocimiento cada uno desde su propio lugar. En 2026, y probablemente durante los próximos años que importan para decisiones prácticas, esos individuos son los que mueven la empresa. La IA entra al flujo de trabajo de cada persona, no a un servicio central que le sirve a todos. Y esa es justamente la razón por la que los capítulos 1 y 2 son parte constitutiva del capítulo 3, aunque parezcan hablar de algo diferente.</p>
+        <p>Una Mente a Bordo empresarial no se construye <em>encima</em> de las personas — se construye <em>a partir</em> de ellas. Si cada miembro del equipo recorre bien su propio camino —infraestructura personal, procesos articulados, conocimiento que se compila en vez de perderse— la empresa ya tiene materia prima viva distribuida en cada cabeza y cada flujo de trabajo. Lo que falta entonces no es instalar algo desde afuera. Es articularlo desde adentro.</p>
+        <p>Eso desplaza el rol del empresario de una manera que vale la pena nombrar. No es el que ya sabe lo que hay que hacer y lo baja al equipo. No es el que contrata un proveedor externo para que arme la infraestructura en lugar de la gente. Es el capitán de la nave — el que no opera cada sistema pero conoce el estado de todos, el que sostiene el rumbo, el que decide cuándo forzar motores y cuándo esperar, el que trabaja codo a codo con la mente a bordo sin ser reemplazado por ella ni tampoco reemplazarla. La Mente a Bordo no es un artefacto. Es el resultado de esa capitanía sostenida en el tiempo, en diálogo permanente con la tripulación que hace que la nave efectivamente funcione.</p>
+        <p>Eso significa también que cualquier esfuerzo empresarial de IA que ignore el recorrido individual de cada persona está condenado a ser genérico, porque está saltándose el único lugar donde vive la diferenciación real — que es en cómo cada miembro del equipo trabaja, decide, captura y procesa lo que hace. De ahí, como conjunto articulado, emerge lo irreducible. No de un documento maestro que alguien escribe en un fin de semana.</p>
+        <p>Y esta lógica, la de la articulación en vez de la instalación, aplica igual si trabajas solo. Si eres creator, consultor, freelance, fundador de una Pyme unipersonal — tú mismo eres la empresa y la tripulación y el capitán a la vez. La diferencia es que el diálogo con la mente a bordo es interno, no distribuido. Pero el principio es el mismo: lo que resulta se parece a ti si tú sigues estando ahí.</p>
+
+        <hr />
+
+        <p><strong>¿Qué parte de lo tuyo sobreviviría si alguien pegara tu URL en una IA y le pidiera que te replicara?</strong> La respuesta honesta a esa pregunta no está en un manual de procesos ni en un portafolio ni en un contrato de licencia. Está en lo que haces todos los días cuando nadie te está mirando — y en cuánto de eso está articulado de manera que alguien más, humano o no, pueda operar con ello sin perder lo que te hace a ti, ti.</p>
+        <p>Si no tienes una respuesta clara, probablemente sea hora de empezar a escribirla. Un individuo a la vez. Empezando por el que está leyendo estas líneas.</p>
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>
+
+<style>
+  .libro {
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-3xl);
+  }
+
+  /* PORTADA */
+  .libro-portada {
+    text-align: center;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .libro-edition {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-bottom: var(--space-lg);
+  }
+
+  .libro-titulo {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 7vw, 3.75rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-heading);
+    line-height: var(--leading-snug);
+    margin: 0 0 var(--space-md);
+    letter-spacing: -0.01em;
+  }
+
+  .libro-subtitulo {
+    font-family: var(--font-body);
+    font-size: var(--text-lead);
+    font-style: italic;
+    color: var(--color-muted);
+    line-height: var(--leading-normal);
+    margin: 0 0 var(--space-xl);
+  }
+
+  .libro-linea {
+    border: none;
+    border-top: 2px solid var(--color-accent);
+    width: 48px;
+    margin: 0 auto var(--space-xl);
+  }
+
+  .libro-autor {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--color-meta);
+    letter-spacing: 0.06em;
+    margin: 0;
+  }
+
+  /* ÍNDICE */
+  .libro-toc {
+    padding: var(--space-xl) 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--space-xl);
+  }
+
+  .toc-titulo {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin: 0 0 var(--space-md);
+  }
+
+  .toc-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: toc;
+  }
+
+  .toc-lista li {
+    padding: var(--space-xs) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .toc-lista li:last-child {
+    border-bottom: none;
+  }
+
+  .toc-lista a {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--text-body);
+    color: var(--color-dark);
+    text-decoration: none;
+  }
+  .toc-lista a:hover {
+    color: var(--color-accent);
+  }
+
+  /* SEPARADOR ENTRE SECCIONES */
+  .libro-sep {
+    border: none;
+    text-align: center;
+    margin: var(--space-2xl) auto;
+    height: 1px;
+    width: 40%;
+    background: var(--color-border);
+    position: relative;
+  }
+  .libro-sep::after {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: var(--color-accent);
+    margin: 4px auto 0;
+  }
+
+  /* SECCIONES DEL LIBRO */
+  .libro-seccion {
+    scroll-margin-top: var(--space-xl);
+    padding: var(--space-xl) 0;
+  }
+
+  .capitulo-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-sm);
+  }
+
+  .capitulo-titulo {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 400;
+    color: var(--color-heading);
+    line-height: var(--leading-snug);
+    margin: 0 0 var(--space-md);
+    letter-spacing: -0.01em;
+  }
+
+  .cap-subtitle {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--text-lead);
+    color: var(--color-muted);
+    line-height: var(--leading-normal);
+    margin: 0 0 var(--space-xl);
+    max-width: 60ch;
+  }
+
+  /* FIRMA DEL PRÓLOGO */
+  .firma {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--text-body);
+    color: var(--color-muted);
+    text-align: right;
+    margin-top: var(--space-xl);
+    line-height: var(--leading-relaxed);
+  }
+  .firma span {
+    display: block;
+    font-family: var(--font-mono);
+    font-style: normal;
+    font-size: var(--text-meta);
+    letter-spacing: 0.06em;
+    margin-top: var(--space-xs);
+  }
+
+  @media (max-width: 640px) {
+    .libro {
+      padding-top: var(--space-xl);
+    }
+
+    .libro-portada {
+      text-align: left;
+    }
+
+    .libro-linea {
+      margin: 0 0 var(--space-xl);
+    }
+
+    .libro-sep {
+      width: 60%;
+    }
+
+    .cap-subtitle {
+      max-width: 100%;
+    }
+  }
+</style>

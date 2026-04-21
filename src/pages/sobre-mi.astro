@@ -8,8 +8,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
   <main id="main" class="page sobre">
     <section class="hero">
-      {/* TODO: reemplazar el monograma por foto real en public/sobre-mi.jpg cuando exista */}
-      <div class="photo-monogram" aria-hidden="true">JM</div>
+      <img src="/sobre-mi.webp" alt="Jaime Morales" class="photo" />
       <div>
         <h1>Jaime Morales</h1>
         <p class="role">Constructor de cosas con IA · Chile</p>
@@ -45,8 +44,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2>Fuera del código</h2>
       <ul>
         <li><strong>Fotografía</strong> — blanco y negro, ciudades, silencio.</li>
-        <li><strong>Motorsport</strong> — F1, endurance, la precisión como arte.</li>
-        <li><strong>Jazz y sci-fi</strong> — improvisación y futuros posibles.</li>
+        <li><strong>Jazz</strong> — improvisación y escucha.</li>
+        <li><strong>Sci-fi</strong> — futuros posibles y preguntas sin respuesta.</li>
       </ul>
     </section>
 
@@ -56,8 +55,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2>Contacto</h2>
       <ul class="links">
         <li><a href="mailto:jaime@jaimemorales.cl">jaime@jaimemorales.cl</a></li>
-        <li><a href="https://conjuros.dev">conjuros.dev</a></li>
-        <li><a href="https://github.com/jaimemorales">GitHub</a></li>
+        <li><a href="https://github.com/jamoralesr">GitHub</a></li>
       </ul>
     </section>
   </main>
@@ -75,20 +73,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     padding-bottom: var(--space-xl);
   }
 
-  .photo-monogram {
+  .photo {
     flex: 0 0 140px;
     width: 140px;
     height: 140px;
     border-radius: 50%;
-    background: var(--color-border);
-    color: var(--color-heading);
-    font-family: var(--font-display);
-    font-size: 56px;
-    font-style: italic;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    letter-spacing: 0.02em;
+    object-fit: cover;
+    object-position: center top;
   }
 
   .hero h1 {

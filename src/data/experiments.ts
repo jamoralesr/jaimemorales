@@ -45,12 +45,4 @@ export const experiments: Experiment[] = [
     tags: ['Laravel', 'Claude API', 'centripetal AI'],
     url: null,
   },
-  {
-    name: 'DinoAI',
-    status: 'en producción',
-    description:
-      '19 agentes Ollama desplegados para RENFE — orquestación multi-agente on-prem para atención y análisis operacional.',
-    tags: ['Ollama', 'multi-agent', 'Laravel'],
-    url: null,
-  },
 ];
