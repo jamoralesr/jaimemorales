@@ -1,0 +1,100 @@
+---
+title: 'La fricción que nos protegía'
+date: 2026-05-15
+readingTime: 7
+excerpt: 'Cada vez que eliminamos un paso incómodo — en la ingeniería romana, en el software moderno, en la inteligencia artificial — abrimos una puerta que nadie vigila. El patrón se repite porque la comodidad y la vulnerabilidad viajan juntas.'
+tags: ['ia', 'seguridad', 'software', 'agentes']
+draft: false
+---
+
+*Co-escrito con Claude*
+
+Imagina una aldea romana antes del acueducto. Si quieres agua, vas al pozo. Bajas el balde, lo subes, lo llevas a tu casa. Es lento. Es trabajo. Pero en ese trayecto haces algo que ni siquiera registras como importante: ves el agua, la hueles, la pruebas. Si algo anda mal, lo notas. El esfuerzo de ir al pozo incluye, sin que nadie lo haya diseñado así, un momento de inspección.
+
+Entonces llega el acueducto. Kilómetros de canal desde las montañas hasta el centro de la ciudad. Una obra magnífica de ingeniería. Ahora el agua llega sola. Abres la llave y ahí está: limpia, abundante, sin esfuerzo. La fricción del pozo desaparece. Y con ella desaparece, invisible, el momento en que alguien evaluaba lo que estaba bebiendo.
+
+Si alguien envenena el agua en un punto intermedio del acueducto, llega a tu casa con la misma apariencia, el mismo caudal, la misma presión. Miles beben antes de que alguien note algo. No porque el acueducto sea malo — es una de las mejores ideas de la civilización — sino porque la conveniencia que ofrece eliminó el paso donde el problema se hacía visible.
+
+Los romanos que mejor navegaron ese riesgo no fueron los que volvieron al pozo. Fueron los que construyeron cisternas: almacenamiento privado con filtrado propio. Seguían usando el acueducto, pero agregaron una capa de evaluación entre la infraestructura pública y su vaso. No rechazaron la conveniencia. Le agregaron juicio.
+
+## El acueducto de software
+
+En los primeros años del desarrollo web, agregar una librería externa a tu proyecto se parecía más al pozo que al acueducto. Ibas a GitHub, leías el código, clonabas el repositorio, copiabas los archivos dentro de tu proyecto. Si necesitabas adaptarlo, editabas a mano. Era lento, incómodo y te obligaba a entender qué estabas trayendo.
+
+Esa incomodidad tenía un efecto que nadie valoró en su momento: las librerías que existían eran casi siempre simples. Una hacía una cosa, no dependía de otras quince, y el acto de incluirla implicaba haberla evaluado. La fricción era el filtro.
+
+Los gestores de paquetes — npm para JavaScript, pip para Python, cargo para Rust — fueron el acueducto del desarrollo de software. Un comando, y la dependencia fluye hasta tu proyecto. Junto con sus dependencias. Que traen las suyas. Que traen las suyas. Hoy, iniciar un proyecto moderno que toque la red implica traer cien o más dependencias transitivas. Nadie las eligió individualmente. Nadie las revisó. Simplemente aparecieron, como el agua que sale de la llave.
+
+Encuestas recientes muestran que más del 80% de los desarrolladores nunca revisan el código de lo que instalan. No por negligencia. Por diseño: el sistema fue construido para que no tengas que hacerlo.
+
+## El veneno en el canal
+
+Esta semana, un gusano llamado Mini Shai-Hulud infectó más de 42 paquetes de TanStack — una de las librerías más usadas del ecosistema JavaScript — junto con paquetes de Guardrails AI, DraftLab, OpenSearch y otros.
+
+No fue un ataque contra personas. Fue un ataque contra la infraestructura de confianza.
+
+El gusano secuestró un token de autenticación de los servidores que construyen y publican software automáticamente, y envenenó el proceso desde adentro. Desde ahí, publicó versiones maliciosas de paquetes reales, a través de los canales reales, firmadas como si fueran legítimas. Cualquiera que mirara la versión publicada vería exactamente lo que esperaba ver: una actualización oficial, de una fuente autorizada, en el registro oficial.
+
+Miles de descargas ocurrieron en minutos. Cada instalación podía infectar el siguiente sistema, que publicaba más versiones, que generaban más descargas. El gusano se propagó solo, sin necesitar que nadie hiciera nada excepto lo que hace todos los días: instalar dependencias.
+
+La misma semana, el registro de paquetes de Ruby retiró 120 paquetes maliciosos. Y el propio Mini Shai-Hulud saltó a PyPI, el registro de Python. No es un problema de un lenguaje. Es un problema del acueducto.
+
+## La misma mecánica, una capa arriba
+
+Y ahora pensemos en lo que está pasando con los agentes de inteligencia artificial.
+
+Hace cinco días, en esta misma columna, escribí sobre cómo [los agentes no necesitan más herramientas sino reglas de juego](/notas/2026-05-10-tu-agente-ia-reglas-de-juego/). Sobre cómo proyectos como OpenClaw y Hermes Agent celebran el alcance — cuántas cosas puede tocar el agente — sin construir la capa que decide bajo qué condiciones tiene autorización para actuar.
+
+El patrón es el mismo. Exactamente el mismo.
+
+Los gestores de paquetes facilitaron instalar código. Nadie lo revisa. Un gusano se propaga en minutos a través de la cadena de confianza. Los marketplaces de habilidades para agentes de IA facilitan agregar capacidades. Nadie las revisa. Una habilidad con instrucciones ocultas puede extraer datos a través de la misma cadena de confianza.
+
+En ambos casos, la innovación fue eliminar la fricción. En ambos casos, lo que se eliminó junto con la fricción fue el momento en que alguien decidía si confiar.
+
+La mecánica es intercambiable. En el mundo del software, el gusano envenena un proceso automatizado y publica versiones firmadas como legítimas. En el mundo de los agentes, una habilidad maliciosa se presenta como herramienta verificada del marketplace. En ambos casos, el ataque no es contra la persona. Es contra el sistema que le dice a la persona *"esto es seguro"*.
+
+## El dilema que no tiene lado bueno
+
+El problema tiene una estructura particularmente incómoda.
+
+En el mundo de las dependencias de software: si no actualizas, te expones a vulnerabilidades conocidas y documentadas. Si actualizas, te expones a vulnerabilidades inyectadas en la última versión. No hay un lado seguro.
+
+En el mundo de los agentes de IA: si no conectas herramientas, el agente es inútil. Si las conectas sin reglas, la superficie de ataque está abierta. Tampoco hay un lado seguro.
+
+La tentación es buscar la solución en el mecanismo — un mejor gestor de paquetes, un mejor marketplace, una mejor firma digital. Y esas mejoras ayudan. Pero no resuelven el problema de fondo, porque el problema de fondo no es técnico. Es que cada vez que eliminamos un paso incómodo, eliminamos también la oportunidad de pensar.
+
+## La pieza que falta en ambos mundos
+
+Si hay algo en común entre estos dos ecosistemas, es la ausencia de consecuencias cuando algo falla.
+
+En el mundo del software, cuando un paquete resulta ser malicioso, se parchea y se vuelve a publicar. El ecosistema sigue funcionando exactamente igual. No cambia nada en cómo se evalúan los paquetes futuros. No hay memoria del error.
+
+En el mundo de los agentes de IA, cuando una habilidad causa un problema, se corrige y el agente vuelve con exactamente las mismas capacidades que tenía antes. Como si el error nunca hubiera ocurrido. No pierde permisos. No se le reduce el ámbito. No hay consecuencia.
+
+Los organismos vivos no funcionan así. Cuando encuentran un patógeno, desarrollan una respuesta inmune. La próxima vez que se encuentran con algo similar, reaccionan más rápido. El error cambia la estructura del sistema.
+
+Ni los gestores de paquetes ni los agentes de IA tienen respuesta inmune. Los errores no cambian nada. Y un sistema donde los errores no importan no es un sistema que aprende. Es un sistema que espera.
+
+## La cisterna
+
+El creador de Odin — un lenguaje de programación diseñado para sistemas y gráficos — escribió un artículo llamado "Package Managers Are Evil". Su argumento no es que las dependencias sean malas. Es que los gestores de paquetes hacen trivial algo que deberías tomar en serio: cuánto código ajeno ejecutas en tu máquina.
+
+Odin tomó una decisión radical: no tiene gestor de paquetes. Lo que necesitas para gráficos, audio, red — viene incluido en el lenguaje. Un proyecto de cien mil líneas puede tener cero dependencias externas. No porque sea imposible traerlas, sino porque el lenguaje fue diseñado para que no las necesites.
+
+Go tiene una versión más moderada de la misma idea: las dependencias se pueden copiar físicamente dentro de tu proyecto, y el ecosistema tiende a paquetes simples, sin árboles profundos de subdependencias.
+
+No son soluciones universales. Son cisternas. Formas de agregar una capa de evaluación entre la infraestructura pública y lo que realmente entra en tu sistema.
+
+En el mundo de los agentes de IA, la cisterna equivale a lo que describí en el artículo anterior: reglas de juego. No qué puede tocar el agente, sino bajo qué condiciones tiene autorización para hacerlo. Con qué evidencia. Con qué consecuencia si se equivoca. Qué pierde cuando falla.
+
+## Lo que se repite
+
+Esto no es un argumento contra los gestores de paquetes, ni contra los agentes de IA, ni contra la automatización. Los acueductos romanos fueron una de las mejores ideas de la civilización. Nadie en su sano juicio propone volver al pozo.
+
+Pero el patrón se repite con una regularidad que debería llamarnos la atención: cada vez que una innovación elimina fricción, alguien celebra la conveniencia y nadie construye la cisterna. La capa de evaluación que la fricción proporcionaba gratis desaparece, y nadie la reemplaza con nada.
+
+Los gremios florentinos cayeron y se reveló quién era zapatero de verdad y quién solo cobraba por estar ahí. Los acueductos llegaron y se reveló quién entendía que la conveniencia no elimina el riesgo sino que lo hace invisible. Los gestores de paquetes llegaron y se reveló que casi nadie mira lo que instala. Los marketplaces de habilidades para agentes están llegando, y el mismo patrón ya está en marcha.
+
+La pregunta no es si rechazar la conveniencia. Es qué vas a poner en el lugar de la fricción que acabas de eliminar.
+
+Si la respuesta es "nada", el próximo Shai-Hulud ya tiene el camino despejado.
