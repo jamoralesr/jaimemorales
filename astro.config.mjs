@@ -5,7 +5,12 @@ import sitemap from '@astrojs/sitemap';
 
 import shikiTheme from './src/styles/shiki-theme.json' with { type: 'json' };
 
-/** rehype plugin: add loading="lazy" + decoding="async" to all <img> in prose. */
+/**
+ * rehype plugin: add loading="lazy" + decoding="async" to all <img> in prose.
+ * Attached to the mdx() integration (all content is .mdx); `markdown.rehypePlugins`
+ * was deprecated in Astro 6.4. shikiConfig stays on `markdown` — mdx inherits it via
+ * extendMarkdownConfig (default true).
+ */
 function rehypeLazyImages() {
   return (tree) => {
     const visit = (node) => {
@@ -23,12 +28,11 @@ function rehypeLazyImages() {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://jaimemorales.cl',
-  integrations: [mdx(), sitemap()],
+  integrations: [mdx({ rehypePlugins: [rehypeLazyImages] }), sitemap()],
   markdown: {
     shikiConfig: {
       theme: shikiTheme,
       wrap: false,
     },
-    rehypePlugins: [rehypeLazyImages],
   },
 });
